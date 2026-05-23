@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:shimmer/shimmer.dart';
+import 'package:own_holiday_app/utils/app_colors.dart';
 
 class Skeleton extends StatelessWidget {
   final double? height;
@@ -16,8 +17,8 @@ class Skeleton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Shimmer.fromColors(
-      baseColor: Colors.grey[300]!,
-      highlightColor: Colors.grey[100]!,
+      baseColor: AppColors.borderGrey,
+      highlightColor: AppColors.lightGrey,
       child: Container(
         height: height,
         width: width,

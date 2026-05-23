@@ -14,7 +14,7 @@ class MembershipDetailsView extends StatelessWidget {
         backgroundColor: AppColors.primaryWhite,
         elevation: 0,
         centerTitle: true,
-        title: const Text('Membership Details', style: TextStyle(color: AppColors.primaryBlack, fontWeight: FontWeight.bold, fontSize: 18)),
+        title: const Text('Membership Details', style: TextStyle(color: AppColors.primaryBlack, fontWeight: FontWeight.normal, fontSize: 14.0)),
         leading: IconButton(
           icon: const Icon(Icons.close, color: AppColors.primaryBlack),
           onPressed: () => Get.back(),
@@ -30,20 +30,20 @@ class MembershipDetailsView extends StatelessWidget {
               width: 80,
               height: 80,
               decoration: BoxDecoration(
-                color: Colors.green.withOpacity(0.1),
+                color: AppColors.primaryYellow.withOpacity(0.1),
                 shape: BoxShape.circle,
               ),
-              child: const Icon(Icons.check_circle, color: Colors.green, size: 50),
+              child: const Icon(Icons.check_circle, color: AppColors.primaryYellow, size: 50),
             ),
             const SizedBox(height: 20),
             const Text(
               'Payment Successful!',
-              style: TextStyle(fontSize: 22, fontWeight: FontWeight.bold, color: AppColors.primaryBlack),
+              style: TextStyle(fontSize: 15.0, fontWeight: FontWeight.normal, color: AppColors.primaryBlack),
             ),
             const SizedBox(height: 8),
             const Text(
               'Your membership has been activated.',
-              style: TextStyle(fontSize: 14, color: AppColors.greyText),
+              style: TextStyle(fontSize: 12.0, color: AppColors.greyText),
             ),
             const SizedBox(height: 40),
             
@@ -60,19 +60,19 @@ class MembershipDetailsView extends StatelessWidget {
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
-                      const Text('PACKAGE NAME', style: TextStyle(color: AppColors.primaryYellow, fontSize: 10, fontWeight: FontWeight.bold)),
+                      const Text('PACKAGE NAME', style: TextStyle(color: AppColors.primaryYellow, fontSize: 12.0, fontWeight: FontWeight.normal)),
                       Container(
                         padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 4),
                         decoration: BoxDecoration(
-                          color: Colors.green,
+                          color: AppColors.primaryYellow,
                           borderRadius: BorderRadius.circular(12),
                         ),
-                        child: const Text('ACTIVE', style: TextStyle(color: Colors.white, fontSize: 10, fontWeight: FontWeight.bold)),
+                        child: const Text('ACTIVE', style: TextStyle(color: Colors.white, fontSize: 12.0, fontWeight: FontWeight.normal)),
                       )
                     ],
                   ),
                   const SizedBox(height: 8),
-                  const Text('OHC Privilege', style: TextStyle(color: Colors.white, fontSize: 20, fontWeight: FontWeight.bold)),
+                  const Text('OHC Privilege', style: TextStyle(color: Colors.white, fontSize: 15.0, fontWeight: FontWeight.normal)),
                   const SizedBox(height: 24),
                   
                   const Row(
@@ -81,17 +81,17 @@ class MembershipDetailsView extends StatelessWidget {
                       Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
-                          Text('VALIDITY', style: TextStyle(color: AppColors.greyText, fontSize: 10, fontWeight: FontWeight.bold)),
+                          Text('VALIDITY', style: TextStyle(color: AppColors.greyText, fontSize: 12.0, fontWeight: FontWeight.normal)),
                           SizedBox(height: 4),
-                          Text('5 Years', style: TextStyle(color: Colors.white, fontSize: 14, fontWeight: FontWeight.bold)),
+                          Text('5 Years', style: TextStyle(color: Colors.white, fontSize: 12.0, fontWeight: FontWeight.normal)),
                         ],
                       ),
                       Column(
                         crossAxisAlignment: CrossAxisAlignment.end,
                         children: [
-                          Text('AMOUNT PAID', style: TextStyle(color: AppColors.greyText, fontSize: 10, fontWeight: FontWeight.bold)),
+                          Text('AMOUNT PAID', style: TextStyle(color: AppColors.greyText, fontSize: 12.0, fontWeight: FontWeight.normal)),
                           SizedBox(height: 4),
-                          Text('₹ 2', style: TextStyle(color: Colors.white, fontSize: 14, fontWeight: FontWeight.bold)),
+                          Text('₹ 2', style: TextStyle(color: Colors.white, fontSize: 12.0, fontWeight: FontWeight.normal)),
                         ],
                       )
                     ],
@@ -103,17 +103,17 @@ class MembershipDetailsView extends StatelessWidget {
                       Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
-                          Text('START DATE', style: TextStyle(color: AppColors.greyText, fontSize: 10, fontWeight: FontWeight.bold)),
+                          Text('START DATE', style: TextStyle(color: AppColors.greyText, fontSize: 12.0, fontWeight: FontWeight.normal)),
                           SizedBox(height: 4),
-                          Text('Oct 24, 2023', style: TextStyle(color: Colors.white, fontSize: 14, fontWeight: FontWeight.bold)),
+                          Text('Oct 24, 2023', style: TextStyle(color: Colors.white, fontSize: 12.0, fontWeight: FontWeight.normal)),
                         ],
                       ),
                       Column(
                         crossAxisAlignment: CrossAxisAlignment.end,
                         children: [
-                          Text('RENEWAL DATE', style: TextStyle(color: AppColors.greyText, fontSize: 10, fontWeight: FontWeight.bold)),
+                          Text('RENEWAL DATE', style: TextStyle(color: AppColors.greyText, fontSize: 12.0, fontWeight: FontWeight.normal)),
                           SizedBox(height: 4),
-                          Text('Oct 24, 2028', style: TextStyle(color: Colors.white, fontSize: 14, fontWeight: FontWeight.bold)),
+                          Text('Oct 24, 2028', style: TextStyle(color: Colors.white, fontSize: 12.0, fontWeight: FontWeight.normal)),
                         ],
                       )
                     ],
@@ -135,7 +135,7 @@ class MembershipDetailsView extends StatelessWidget {
                 onPressed: () {
                   Get.offAllNamed(Routes.MEMBER_DETAILS);
                 },
-                child: const Text('Go to Dashboard', style: TextStyle(fontWeight: FontWeight.bold, fontSize: 14)),
+                child: const Text('Go to Dashboard', style: TextStyle(fontWeight: FontWeight.normal, fontSize: 12.0)),
               ),
             )
           ],

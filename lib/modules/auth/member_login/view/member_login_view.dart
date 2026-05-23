@@ -24,8 +24,8 @@ class MemberLoginView extends GetView<MemberLoginController> {
                     child: const Text(
                       'Welcome Back, Member',
                       style: TextStyle(
-                        fontSize: 28,
-                        fontWeight: FontWeight.w900,
+                        fontSize: 14.0,
+                        fontWeight: FontWeight.normal,
                         color: AppColors.primaryBlack,
                         letterSpacing: -0.5,
                       ),
@@ -37,9 +37,9 @@ class MemberLoginView extends GetView<MemberLoginController> {
                     child: Text(
                       'Login to access your exclusive holiday benefits and manage your bookings.',
                       style: TextStyle(
-                        fontSize: 14,
+                        fontSize: 12.0,
                         color: AppColors.greyText,
-                        fontWeight: FontWeight.w500,
+                        fontWeight: FontWeight.normal,
                       ),
                     ),
                   ),
@@ -78,8 +78,8 @@ class MemberLoginView extends GetView<MemberLoginController> {
                           'Forgot Password?',
                           style: TextStyle(
                             color: AppColors.primaryBlack,
-                            fontWeight: FontWeight.w700,
-                            fontSize: 13,
+                            fontWeight: FontWeight.normal,
+                            fontSize: 12.0,
                           ),
                         ),
                       ),
@@ -110,8 +110,8 @@ class MemberLoginView extends GetView<MemberLoginController> {
                           : const Text(
                               'LOGIN TO ACCOUNT',
                               style: TextStyle(
-                                fontSize: 16,
-                                fontWeight: FontWeight.w900,
+                                fontSize: 13.0,
+                                fontWeight: FontWeight.normal,
                                 letterSpacing: 1.2,
                               ),
                             ),
@@ -128,7 +128,7 @@ class MemberLoginView extends GetView<MemberLoginController> {
                       children: [
                         Text(
                           'Not a member yet? ',
-                          style: TextStyle(color: AppColors.greyText, fontSize: 14),
+                          style: TextStyle(color: AppColors.greyText, fontSize: 12.0),
                         ),
                         GestureDetector(
                           onTap: () {},
@@ -136,8 +136,8 @@ class MemberLoginView extends GetView<MemberLoginController> {
                             'Become a Member',
                             style: TextStyle(
                               color: AppColors.primaryBlack,
-                              fontWeight: FontWeight.w900,
-                              fontSize: 14,
+                              fontWeight: FontWeight.normal,
+                              fontSize: 12.0,
                               decoration: TextDecoration.underline,
                             ),
                           ),
@@ -202,7 +202,7 @@ class MemberLoginView extends GetView<MemberLoginController> {
                   begin: Alignment.topCenter,
                   end: Alignment.bottomCenter,
                   colors: [
-                    Colors.black.withOpacity(0.3),
+                    AppColors.primaryBlack.withOpacity(0.3),
                     Colors.transparent,
                     AppColors.primaryWhite,
                   ],
@@ -257,8 +257,8 @@ class MemberLoginView extends GetView<MemberLoginController> {
         Text(
           label,
           style: const TextStyle(
-            fontSize: 14,
-            fontWeight: FontWeight.w800,
+            fontSize: 12.0,
+            fontWeight: FontWeight.normal,
             color: AppColors.primaryBlack,
           ),
         ),
@@ -272,10 +272,10 @@ class MemberLoginView extends GetView<MemberLoginController> {
           child: TextField(
             controller: controller,
             obscureText: isPassword,
-            style: const TextStyle(fontWeight: FontWeight.w600, fontSize: 15),
+            style: const TextStyle(fontWeight: FontWeight.normal, fontSize: 13.0),
             decoration: InputDecoration(
               hintText: hint,
-              hintStyle: TextStyle(color: AppColors.greyText.withOpacity(0.6), fontSize: 14),
+              hintStyle: TextStyle(color: AppColors.greyText.withOpacity(0.6), fontSize: 12.0),
               prefixIcon: Icon(icon, color: AppColors.primaryBlack, size: 20),
               border: InputBorder.none,
               contentPadding: const EdgeInsets.symmetric(horizontal: 20, vertical: 16),

@@ -31,7 +31,7 @@ class MembershipFormView extends StatelessWidget {
                 elevation: 0,
               ),
               onPressed: () => Get.toNamed(Routes.MEMBER_LOGIN),
-              child: const Text('MEMBER LOGIN', style: TextStyle(fontWeight: FontWeight.w900, fontSize: 10)),
+              child: const Text('MEMBER LOGIN', style: TextStyle(fontWeight: FontWeight.normal, fontSize: 12.0)),
             ),
           )
         ],
@@ -43,75 +43,82 @@ class MembershipFormView extends StatelessWidget {
             child: Column(
               children: [
                 // Header Cards (Dynamic)
-                Row(
-                  children: [
-                    Expanded(
-                      child: Container(
-                        padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 10),
-                        decoration: BoxDecoration(
-                          color: Colors.white,
-                          border: Border.all(color: AppColors.primaryYellow),
-                          borderRadius: BorderRadius.circular(8),
-                        ),
-                        child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            const Text('PACKAGE NAME', style: TextStyle(color: AppColors.primaryYellow, fontSize: 8, fontWeight: FontWeight.bold)),
-                            const SizedBox(height: 2),
-                            Text(controller.selectedTier.name, style: const TextStyle(fontSize: 12, fontWeight: FontWeight.bold, color: AppColors.primaryBlack), overflow: TextOverflow.ellipsis),
-                            Text(controller.selectedTier.duration ?? 'Long Term Access', style: const TextStyle(fontSize: 9, color: AppColors.greyText), overflow: TextOverflow.ellipsis),
-                          ],
-                        ),
-                      ),
-                    ),
-                    const SizedBox(width: 6),
-                    Expanded(
-                      child: Container(
-                        padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 10),
-                        decoration: BoxDecoration(
-                          color: AppColors.primaryBlack,
-                          borderRadius: BorderRadius.circular(8),
-                        ),
-                        child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            Row(
-                              children: [
-                                Container(
-                                  padding: const EdgeInsets.all(4),
-                                  decoration: BoxDecoration(color: AppColors.primaryYellow, borderRadius: BorderRadius.circular(6)),
-                                  child: const Icon(Icons.account_balance_wallet, size: 12, color: AppColors.primaryBlack),
-                                ),
-                                const SizedBox(width: 6),
-                                const Expanded(child: Text('TOTAL PAYABLE', style: TextStyle(color: AppColors.primaryYellow, fontSize: 8, fontWeight: FontWeight.bold), overflow: TextOverflow.ellipsis)),
-                              ],
-                            ),
-                            const SizedBox(height: 4),
-                            Text('₹${controller.selectedTier.price}', style: const TextStyle(color: Colors.white, fontSize: 14, fontWeight: FontWeight.bold)),
-                          ],
+                IntrinsicHeight(
+                  child: Row(
+                    crossAxisAlignment: CrossAxisAlignment.stretch,
+                    children: [
+                      Expanded(
+                        child: Container(
+                          padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 12),
+                          decoration: BoxDecoration(
+                            color: Colors.white,
+                            border: Border.all(color: AppColors.primaryYellow),
+                            borderRadius: BorderRadius.circular(8),
+                          ),
+                          child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: [
+                              const Text('PACKAGE NAME', style: TextStyle(color: AppColors.primaryYellow, fontSize: 11.0, fontWeight: FontWeight.bold)),
+                              const SizedBox(height: 4),
+                              Text(controller.selectedTier.name, style: const TextStyle(fontSize: 13.0, fontWeight: FontWeight.bold, color: AppColors.primaryBlack), overflow: TextOverflow.ellipsis),
+                              Text(controller.selectedTier.duration ?? 'Long Term Access', style: const TextStyle(fontSize: 11.0, color: AppColors.greyText), overflow: TextOverflow.ellipsis),
+                            ],
+                          ),
                         ),
                       ),
-                    ),
-                    const SizedBox(width: 6),
-                    Expanded(
-                      child: Obx(() => Container(
-                        padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 10),
-                        decoration: BoxDecoration(
-                          color: Colors.white,
-                          borderRadius: BorderRadius.circular(8),
+                      const SizedBox(width: 6),
+                      Expanded(
+                        child: Container(
+                          padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 12),
+                          decoration: BoxDecoration(
+                            color: AppColors.primaryBlack,
+                            borderRadius: BorderRadius.circular(8),
+                          ),
+                          child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: [
+                              Row(
+                                children: [
+                                  Container(
+                                    padding: const EdgeInsets.all(4),
+                                    decoration: BoxDecoration(color: AppColors.primaryYellow, borderRadius: BorderRadius.circular(6)),
+                                    child: const Icon(Icons.account_balance_wallet, size: 10, color: AppColors.primaryBlack),
+                                  ),
+                                  const SizedBox(width: 6),
+                                  const Expanded(child: Text('TOTAL PAYABLE', style: TextStyle(color: AppColors.primaryYellow, fontSize: 11.0, fontWeight: FontWeight.bold), overflow: TextOverflow.ellipsis)),
+                                ],
+                              ),
+                              const SizedBox(height: 4),
+                              Text('₹${controller.selectedTier.price}', style: const TextStyle(color: Colors.white, fontSize: 13.0, fontWeight: FontWeight.bold)),
+                              const Text('Active Now', style: TextStyle(color: Colors.white70, fontSize: 11.0)),
+                            ],
+                          ),
                         ),
-                        child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            const Text('PROGRESS', style: TextStyle(color: AppColors.greyText, fontSize: 8, fontWeight: FontWeight.bold)),
-                            const SizedBox(height: 2),
-                            Text('Step ${controller.currentStep.value} of 2', style: const TextStyle(fontSize: 12, fontWeight: FontWeight.bold, color: AppColors.primaryBlack)),
-                            Text(controller.currentStep.value == 1 ? 'Personal details' : 'Documents', style: const TextStyle(fontSize: 9, color: AppColors.greyText), overflow: TextOverflow.ellipsis),
-                          ],
-                        ),
-                      )),
-                    ),
-                  ],
+                      ),
+                      const SizedBox(width: 6),
+                      Expanded(
+                        child: Obx(() => Container(
+                          padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 12),
+                          decoration: BoxDecoration(
+                            color: Colors.white,
+                            borderRadius: BorderRadius.circular(8),
+                          ),
+                          child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: [
+                              const Text('PROGRESS', style: TextStyle(color: AppColors.greyText, fontSize: 11.0, fontWeight: FontWeight.bold)),
+                              const SizedBox(height: 4),
+                              Text('Step ${controller.currentStep.value} of 2', style: const TextStyle(fontSize: 13.0, fontWeight: FontWeight.bold, color: AppColors.primaryBlack)),
+                              Text(controller.currentStep.value == 1 ? 'Personal details' : 'Documents', style: const TextStyle(fontSize: 11.0, color: AppColors.greyText), overflow: TextOverflow.ellipsis),
+                            ],
+                          ),
+                        )),
+                      ),
+                    ],
+                  ),
                 ),
                 const SizedBox(height: 16),
 
@@ -128,7 +135,7 @@ class MembershipFormView extends StatelessWidget {
           ),
           Obx(() => controller.isLoading.value 
             ? Container(
-                color: Colors.black26,
+                color: AppColors.primaryBlack.withOpacity(0.3),
                 child: const Center(child: CircularProgressIndicator(color: AppColors.primaryYellow)),
               )
             : const SizedBox.shrink()),
@@ -147,7 +154,7 @@ class MembershipFormView extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          const Text('PERSONAL DETAIL', style: TextStyle(color: AppColors.primaryYellow, fontWeight: FontWeight.bold, fontSize: 12)),
+          const Text('PERSONAL DETAIL', style: TextStyle(color: AppColors.primaryYellow, fontWeight: FontWeight.normal, fontSize: 12.0)),
           const SizedBox(height: 12),
           Row(
             children: [
@@ -195,7 +202,7 @@ class MembershipFormView extends StatelessWidget {
             suffixIcon: Padding(
               padding: const EdgeInsets.all(8.0),
               child: controller.isMobileVerified.value 
-                ? const Icon(Icons.check_circle_rounded, color: Colors.green, size: 20)
+                ? const Icon(Icons.check_circle_rounded, color: AppColors.primaryYellow, size: 20)
                 : ElevatedButton(
                     style: ElevatedButton.styleFrom(
                       backgroundColor: controller.isMobileOtpSent.value ? AppColors.primaryBlack : AppColors.primaryYellow,
@@ -208,7 +215,7 @@ class MembershipFormView extends StatelessWidget {
                     onPressed: controller.isMobileOtpSent.value ? controller.verifyMobileOtp : controller.sendMobileOtp,
                     child: Text(
                       controller.isMobileOtpSent.value ? 'Verify' : 'Send OTP', 
-                      style: const TextStyle(fontSize: 10, fontWeight: FontWeight.bold)
+                      style: const TextStyle(fontSize: 12.0, fontWeight: FontWeight.normal)
                     ),
                   ),
             ),
@@ -224,7 +231,7 @@ class MembershipFormView extends StatelessWidget {
             suffixIcon: Padding(
               padding: const EdgeInsets.all(8.0),
               child: controller.isEmailVerified.value 
-                ? const Icon(Icons.check_circle_rounded, color: Colors.green, size: 20)
+                ? const Icon(Icons.check_circle_rounded, color: AppColors.primaryYellow, size: 20)
                 : ElevatedButton(
                     style: ElevatedButton.styleFrom(
                       backgroundColor: controller.isEmailOtpSent.value ? AppColors.primaryBlack : AppColors.primaryYellow,
@@ -237,7 +244,7 @@ class MembershipFormView extends StatelessWidget {
                     onPressed: controller.isEmailOtpSent.value ? controller.verifyEmailOtp : controller.sendEmailOtp,
                     child: Text(
                       controller.isEmailOtpSent.value ? 'Verify' : 'Send OTP', 
-                      style: const TextStyle(fontSize: 10, fontWeight: FontWeight.bold)
+                      style: const TextStyle(fontSize: 12.0, fontWeight: FontWeight.normal)
                     ),
                   ),
             ),
@@ -288,7 +295,7 @@ class MembershipFormView extends StatelessWidget {
             );
           }),
           const SizedBox(height: 24),
-          const Text('ADDRESS', style: TextStyle(color: AppColors.primaryYellow, fontWeight: FontWeight.bold, fontSize: 12)),
+          const Text('ADDRESS', style: TextStyle(color: AppColors.primaryYellow, fontWeight: FontWeight.normal, fontSize: 12.0)),
           const SizedBox(height: 12),
           _buildTextField('House No. / Block No.', controller.houseNoController),
           const SizedBox(height: 12),
@@ -324,8 +331,8 @@ class MembershipFormView extends StatelessWidget {
                   controller.showOfficeAddress.value ? 'Remove Office Address' : 'Add Office Address (Optional)',
                   style: const TextStyle(
                     color: AppColors.primaryYellow,
-                    fontWeight: FontWeight.bold,
-                    fontSize: 12,
+                    fontWeight: FontWeight.normal,
+                    fontSize: 12.0,
                   ),
                 ),
               ],
@@ -339,7 +346,7 @@ class MembershipFormView extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 const SizedBox(height: 24),
-                const Text('OFFICE ADDRESS (OPTIONAL)', style: TextStyle(color: AppColors.primaryYellow, fontWeight: FontWeight.bold, fontSize: 12)),
+                const Text('OFFICE ADDRESS (OPTIONAL)', style: TextStyle(color: AppColors.primaryYellow, fontWeight: FontWeight.normal, fontSize: 12.0)),
                 const SizedBox(height: 12),
                 _buildTextField('Office Address', controller.officeAddressController),
                 const SizedBox(height: 12),
@@ -382,7 +389,7 @@ class MembershipFormView extends StatelessWidget {
                         color: AppColors.primaryBlack,
                       ),
                     )
-                  : const Text('Next Step ➔', style: TextStyle(fontWeight: FontWeight.bold, fontSize: 14)),
+                  : const Text('Next Step ➔', style: TextStyle(fontWeight: FontWeight.normal, fontSize: 12.0)),
             ),
           ))
         ],
@@ -400,7 +407,7 @@ class MembershipFormView extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          const Text('DOCUMENTS', style: TextStyle(color: AppColors.primaryYellow, fontWeight: FontWeight.bold, fontSize: 12)),
+          const Text('DOCUMENTS', style: TextStyle(color: AppColors.primaryYellow, fontWeight: FontWeight.normal, fontSize: 12.0)),
           const SizedBox(height: 12),
           Obx(() => _buildFileRow(
             'Profile Image',
@@ -441,7 +448,7 @@ class MembershipFormView extends StatelessWidget {
                             borderRadius: const BorderRadius.horizontal(left: Radius.circular(8)),
                             border: Border(right: BorderSide(color: AppColors.lightGrey)),
                           ),
-                          child: const Text('↑ Choose', style: TextStyle(fontSize: 11, fontWeight: FontWeight.bold)),
+                          child: const Text('↑ Choose', style: TextStyle(fontSize: 12.0, fontWeight: FontWeight.normal)),
                         ),
                       ),
                       Expanded(
@@ -449,7 +456,7 @@ class MembershipFormView extends StatelessWidget {
                           padding: const EdgeInsets.symmetric(horizontal: 8),
                           child: Obx(() => Text(
                             controller.addressProofFile.value?.name ?? 'No file',
-                            style: const TextStyle(color: AppColors.greyText, fontSize: 11),
+                            style: const TextStyle(color: AppColors.greyText, fontSize: 12.0),
                             overflow: TextOverflow.ellipsis,
                           )),
                         ),
@@ -461,7 +468,7 @@ class MembershipFormView extends StatelessWidget {
             ],
           ),
           const SizedBox(height: 24),
-          const Text('CONSENT', style: TextStyle(color: AppColors.primaryYellow, fontWeight: FontWeight.bold, fontSize: 12)),
+          const Text('CONSENT', style: TextStyle(color: AppColors.primaryYellow, fontWeight: FontWeight.normal, fontSize: 12.0)),
           const SizedBox(height: 12),
           Container(
             padding: const EdgeInsets.all(12),
@@ -489,14 +496,14 @@ class MembershipFormView extends StatelessWidget {
                     children: [
                       const Wrap(
                         children: [
-                          Text('I agree to the ', style: TextStyle(color: AppColors.primaryBlack, fontSize: 12)),
-                          Text('Terms & Conditions', style: TextStyle(color: AppColors.primaryYellow, fontSize: 12, fontWeight: FontWeight.bold)),
+                          Text('I agree to the ', style: TextStyle(color: AppColors.primaryBlack, fontSize: 12.0)),
+                          Text('Terms & Conditions', style: TextStyle(color: AppColors.primaryYellow, fontSize: 12.0, fontWeight: FontWeight.normal)),
                         ],
                       ),
                       const SizedBox(height: 4),
                       GestureDetector(
                         onTap: () => _showTermsPopup(context),
-                        child: const Text('Read full terms and conditions', style: TextStyle(color: AppColors.greyText, fontSize: 11, decoration: TextDecoration.underline)),
+                        child: const Text('Read full terms and conditions', style: TextStyle(color: AppColors.greyText, fontSize: 12.0, decoration: TextDecoration.underline)),
                       ),
                     ],
                   ),
@@ -517,7 +524,7 @@ class MembershipFormView extends StatelessWidget {
                     ),
                     onPressed: controller.previousStep,
                     icon: const Icon(Icons.arrow_back, size: 14),
-                    label: const Text('Back', style: TextStyle(fontWeight: FontWeight.bold, fontSize: 12)),
+                    label: const Text('Back', style: TextStyle(fontWeight: FontWeight.normal, fontSize: 12.0)),
                   ),
                 ),
               ),
@@ -533,7 +540,7 @@ class MembershipFormView extends StatelessWidget {
                     ),
                     onPressed: controller.proceedToPayment,
                     icon: const Icon(Icons.payment, size: 14),
-                    label: const Text('Pay Now', style: TextStyle(fontWeight: FontWeight.bold, fontSize: 12)),
+                    label: const Text('Pay Now', style: TextStyle(fontWeight: FontWeight.normal, fontSize: 12.0)),
                   ),
                 ),
               ),
@@ -560,7 +567,7 @@ class MembershipFormView extends StatelessWidget {
               child: Text(
                 rxValue.value ?? 'Select Country',
                 style: TextStyle(
-                  fontSize: 12,
+                  fontSize: 14.0,
                   color: rxValue.value != null ? AppColors.primaryBlack : AppColors.greyText,
                 ),
                 overflow: TextOverflow.ellipsis,
@@ -614,10 +621,10 @@ class MembershipFormView extends StatelessWidget {
                         controller: searchCtrl,
                         autofocus: true,
                         onChanged: (_) => setState(() {}),
-                        style: const TextStyle(fontSize: 13),
+                        style: const TextStyle(fontSize: 12.0),
                         decoration: InputDecoration(
                           hintText: 'Search country...',
-                          hintStyle: const TextStyle(color: AppColors.greyText, fontSize: 12),
+                          hintStyle: const TextStyle(color: AppColors.greyText, fontSize: 12.0),
                           prefixIcon: const Icon(Icons.search, color: AppColors.greyText, size: 18),
                           contentPadding: const EdgeInsets.symmetric(vertical: 10, horizontal: 12),
                           border: OutlineInputBorder(
@@ -652,8 +659,8 @@ class MembershipFormView extends StatelessWidget {
                                   title: Text(
                                     country,
                                     style: TextStyle(
-                                      fontSize: 13,
-                                      fontWeight: isSelected ? FontWeight.bold : FontWeight.normal,
+                                      fontSize: 12.0,
+                                      fontWeight: isSelected ? FontWeight.normal : FontWeight.normal,
                                       color: isSelected ? AppColors.primaryYellow : AppColors.primaryBlack,
                                     ),
                                   ),
@@ -686,10 +693,10 @@ class MembershipFormView extends StatelessWidget {
         readOnly: readOnly,
         onTap: onTap,
         autofillHints: autofillHints,
-        style: const TextStyle(fontSize: 13),
+        style: const TextStyle(fontSize: 14.0),
         decoration: InputDecoration(
           hintText: hint,
-          hintStyle: const TextStyle(color: AppColors.greyText, fontSize: 12),
+          hintStyle: const TextStyle(color: AppColors.greyText, fontSize: 14.0),
           contentPadding: const EdgeInsets.symmetric(horizontal: 12, vertical: 0),
           border: OutlineInputBorder(
             borderRadius: BorderRadius.circular(8),
@@ -718,7 +725,7 @@ class MembershipFormView extends StatelessWidget {
         title: Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
-            const Text('Terms & Conditions', style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold)),
+            const Text('Terms & Conditions', style: TextStyle(fontSize: 15.0, fontWeight: FontWeight.normal)),
             GestureDetector(
               onTap: () => Navigator.pop(context),
               child: const Icon(Icons.close, color: AppColors.greyText, size: 20),
@@ -730,17 +737,17 @@ class MembershipFormView extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             mainAxisSize: MainAxisSize.min,
             children: [
-              Text('1. Membership Agreement', style: TextStyle(fontWeight: FontWeight.bold, fontSize: 13)),
-              Text('By purchasing a membership, you agree to abide by the rules and regulations of Own Holiday Club.', style: TextStyle(fontSize: 12, color: AppColors.greyText)),
+              Text('1. Membership Agreement', style: TextStyle(fontWeight: FontWeight.normal, fontSize: 14.0)),
+              Text('By purchasing a membership, you agree to abide by the rules and regulations of Own Holiday Club.', style: TextStyle(fontSize: 13.0, color: AppColors.greyText)),
               SizedBox(height: 12),
-              Text('2. Payment & Refunds', style: TextStyle(fontWeight: FontWeight.bold, fontSize: 13)),
-              Text('All membership payments are final. Refunds are subject to the cancellation policy.', style: TextStyle(fontSize: 12, color: AppColors.greyText)),
+              Text('2. Payment & Refunds', style: TextStyle(fontWeight: FontWeight.normal, fontSize: 14.0)),
+              Text('All membership payments are final. Refunds are subject to the cancellation policy.', style: TextStyle(fontSize: 13.0, color: AppColors.greyText)),
               SizedBox(height: 12),
-              Text('3. Document Verification', style: TextStyle(fontWeight: FontWeight.bold, fontSize: 13)),
-              Text('Your membership is subject to successful verification of your submitted KYC documents.', style: TextStyle(fontSize: 12, color: AppColors.greyText)),
+              Text('3. Document Verification', style: TextStyle(fontWeight: FontWeight.normal, fontSize: 14.0)),
+              Text('Your membership is subject to successful verification of your submitted KYC documents.', style: TextStyle(fontSize: 13.0, color: AppColors.greyText)),
               SizedBox(height: 12),
-              Text('4. Usage of Benefits', style: TextStyle(fontWeight: FontWeight.bold, fontSize: 13)),
-              Text('Membership benefits, including holiday packages and discounts, are non-transferable unless explicitly stated.', style: TextStyle(fontSize: 12, color: AppColors.greyText)),
+              Text('4. Usage of Benefits', style: TextStyle(fontWeight: FontWeight.normal, fontSize: 14.0)),
+              Text('Membership benefits, including holiday packages and discounts, are non-transferable unless explicitly stated.', style: TextStyle(fontSize: 13.0, color: AppColors.greyText)),
             ],
           ),
         ),
@@ -757,17 +764,19 @@ class MembershipFormView extends StatelessWidget {
         borderRadius: BorderRadius.circular(8),
       ),
       child: DropdownButtonHideUnderline(
-        child: Obx(() => DropdownButton<String>(
-          isExpanded: true,
-          menuMaxHeight: 300,
-          icon: const Icon(Icons.keyboard_arrow_down, color: AppColors.greyText, size: 16),
-          hint: Text(hint, style: const TextStyle(color: AppColors.greyText, fontSize: 12), overflow: TextOverflow.ellipsis),
-          value: rxValue.value,
-          items: items.map((item) => DropdownMenuItem(value: item, child: Text(item, style: const TextStyle(fontSize: 13), overflow: TextOverflow.ellipsis))).toList(),
-          onChanged: (val) {
-            if (val != null) rxValue.value = val;
-          },
-        )),
+        child: DropdownButtonHideUnderline(
+          child: Obx(() => DropdownButton<String>(
+            isExpanded: true,
+            menuMaxHeight: 300,
+            icon: const Icon(Icons.keyboard_arrow_down, color: AppColors.greyText, size: 16),
+            hint: Text(hint, style: const TextStyle(color: AppColors.greyText, fontSize: 14.0), overflow: TextOverflow.ellipsis),
+            value: rxValue.value,
+            items: items.map((item) => DropdownMenuItem(value: item, child: Text(item, style: const TextStyle(fontSize: 14.0), overflow: TextOverflow.ellipsis))).toList(),
+            onChanged: (val) {
+              if (val != null) rxValue.value = val;
+            },
+          )),
+        ),
       ),
     );
   }
@@ -785,7 +794,7 @@ class MembershipFormView extends StatelessWidget {
               border: Border.all(color: AppColors.lightGrey),
               borderRadius: BorderRadius.circular(8),
             ),
-            child: Text(label, style: const TextStyle(fontSize: 12, color: AppColors.primaryBlack, fontWeight: FontWeight.w500), overflow: TextOverflow.ellipsis),
+            child: Text(label, style: const TextStyle(fontSize: 14.0, color: AppColors.primaryBlack, fontWeight: FontWeight.normal), overflow: TextOverflow.ellipsis),
           ),
         ),
         const SizedBox(width: 8),
@@ -809,13 +818,13 @@ class MembershipFormView extends StatelessWidget {
                       borderRadius: const BorderRadius.horizontal(left: Radius.circular(8)),
                       border: Border(right: BorderSide(color: AppColors.lightGrey)),
                     ),
-                    child: const Text('↑ Choose', style: TextStyle(fontSize: 11, fontWeight: FontWeight.bold)),
+                    child: const Text('↑ Choose', style: TextStyle(fontSize: 14.0, fontWeight: FontWeight.normal)),
                   ),
                 ),
                 Expanded(
                   child: Padding(
                     padding: const EdgeInsets.symmetric(horizontal: 8),
-                    child: Text(fileName, style: const TextStyle(color: AppColors.greyText, fontSize: 11), overflow: TextOverflow.ellipsis),
+                    child: Text(fileName, style: const TextStyle(color: AppColors.greyText, fontSize: 14.0), overflow: TextOverflow.ellipsis),
                   ),
                 ),
               ],

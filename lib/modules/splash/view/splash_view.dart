@@ -48,7 +48,7 @@ class SplashView extends GetView<SplashController> {
                             shape: BoxShape.circle,
                             boxShadow: [
                               BoxShadow(
-                                color: Colors.black.withOpacity(0.04),
+                                color: AppColors.primaryBlack.withOpacity(0.04),
                                 blurRadius: 30,
                                 spreadRadius: 5,
                               ),
@@ -110,8 +110,8 @@ class SplashView extends GetView<SplashController> {
                       const Text(
                         'PREPARING YOUR JOURNEY',
                         style: TextStyle(
-                          fontSize: 9,
-                          fontWeight: FontWeight.w800,
+                          fontSize: 8.0,
+                          fontWeight: FontWeight.normal,
                           color: AppColors.greyText,
                           letterSpacing: 2.0,
                         ),

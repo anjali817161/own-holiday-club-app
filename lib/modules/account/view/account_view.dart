@@ -34,8 +34,8 @@ class AccountView extends GetView<AccountController> {
             'Account',
             style: TextStyle(
               color: AppColors.primaryBlack, 
-              fontWeight: FontWeight.w600,
-              fontSize: 18,
+              fontWeight: FontWeight.normal,
+              fontSize: 10.0,
             ),
           ),
           actions: [
@@ -67,10 +67,10 @@ class AccountView extends GetView<AccountController> {
                   const SizedBox(height: 16),
                   const Text(
                     'Guest User',
-                    style: TextStyle(fontSize: 22, fontWeight: FontWeight.w600, color: AppColors.primaryBlack),
+                    style: TextStyle(fontSize: 11.0, fontWeight: FontWeight.normal, color: AppColors.primaryBlack),
                   ),
                   const SizedBox(height: 6),
-                  const Text('Login to access your premium membership benefits', style: TextStyle(color: AppColors.greyText, fontSize: 13)),
+                  const Text('Login to access your premium membership benefits', style: TextStyle(color: AppColors.greyText, fontSize: 8.0)),
                 ],
               ),
               const SizedBox(height: 32),
@@ -118,9 +118,9 @@ class AccountView extends GetView<AccountController> {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Text(title, style: const TextStyle(fontWeight: FontWeight.w600, color: AppColors.primaryBlack, fontSize: 15)),
+                  Text(title, style: const TextStyle(fontWeight: FontWeight.normal, color: AppColors.primaryBlack, fontSize: 9.0)),
                   const SizedBox(height: 4),
-                  Text(subtitle, style: const TextStyle(fontSize: 12, color: AppColors.greyText)),
+                  Text(subtitle, style: const TextStyle(fontSize: 8.0, color: AppColors.greyText)),
                 ],
               ),
             ),
@@ -170,14 +170,14 @@ class AccountView extends GetView<AccountController> {
                   controller.isLoggedIn.value 
                       ? (controller.userData.value?.name ?? 'Member')
                       : 'Guest User',
-                  style: const TextStyle(fontSize: 18, fontWeight: FontWeight.w600, color: AppColors.primaryYellow),
+                  style: const TextStyle(fontSize: 10.0, fontWeight: FontWeight.normal, color: AppColors.primaryYellow),
                 ),
                 const SizedBox(height: 4),
                 Text(
                   controller.isLoggedIn.value 
                       ? (controller.userData.value?.mobile ?? 'OHC Member')
                       : 'Welcome to OHC',
-                  style: const TextStyle(fontSize: 13, color: AppColors.primaryWhite),
+                  style: const TextStyle(fontSize: 8.0, color: AppColors.primaryWhite),
                 ),
               ],
             )),
@@ -227,7 +227,7 @@ class AccountView extends GetView<AccountController> {
                               Get.toNamed(Routes.MEMBER_LOGIN);
                             },
                             child: const Text('MEMBER LOGIN',
-                                style: TextStyle(fontWeight: FontWeight.w600, fontSize: 13, letterSpacing: 1.0)),
+                                style: TextStyle(fontWeight: FontWeight.normal, fontSize: 8.0, letterSpacing: 1.0)),
                           ),
                         ),
                         const SizedBox(height: 12),
@@ -245,7 +245,7 @@ class AccountView extends GetView<AccountController> {
                     ),
                     onPressed: () {},
                     child: const Text('ENQUIRY',
-                        style: TextStyle(fontWeight: FontWeight.w600, fontSize: 13, letterSpacing: 1.0)),
+                        style: TextStyle(fontWeight: FontWeight.normal, fontSize: 8.0, letterSpacing: 1.0)),
                   ),
                 ),
                 if (controller.isLoggedIn.value)
@@ -253,8 +253,8 @@ class AccountView extends GetView<AccountController> {
                   width: double.infinity,
                   child: OutlinedButton.icon(
                     style: OutlinedButton.styleFrom(
-                      foregroundColor: Colors.red,
-                      side: const BorderSide(color: Colors.red),
+                      foregroundColor: AppColors.brownAccent,
+                      side: const BorderSide(color: AppColors.brownAccent),
                       shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(10)),
                       padding: const EdgeInsets.symmetric(vertical: 12),
@@ -262,7 +262,7 @@ class AccountView extends GetView<AccountController> {
                     onPressed: () => controller.logout(),
                     icon: const Icon(Icons.logout_rounded, size: 20),
                     label: const Text('Logout',
-                        style: TextStyle(fontWeight: FontWeight.w600)),
+                        style: TextStyle(fontWeight: FontWeight.normal)),
                   ),
                 ),
               ],
@@ -285,7 +285,7 @@ class _DrawerItem extends StatelessWidget {
     return ListTile(
       contentPadding: const EdgeInsets.symmetric(horizontal: 20),
       leading: Icon(icon, color: AppColors.primaryBlack, size: 22),
-      title: Text(label, style: const TextStyle(fontWeight: FontWeight.w600, fontSize: 12, color: AppColors.primaryBlack)),
+      title: Text(label, style: const TextStyle(fontWeight: FontWeight.normal, fontSize: 8.0, color: AppColors.primaryBlack)),
       trailing: const Icon(Icons.arrow_forward_ios_rounded, size: 13, color: AppColors.greyText),
       onTap: onTap,
     );

@@ -71,82 +71,75 @@ class _DestinationDetailsViewState extends State<DestinationDetailsView> {
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      FadeInUp(
-                        child: Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          children: [
-                            Expanded(
-                              child: Column(
-                                crossAxisAlignment: CrossAxisAlignment.start,
-                                children: [
-                                  Text(
-                                    destination['name'] ?? 'Destination',
-                                    style: GoogleFonts.montserrat(
-                                      fontSize: 24,
-                                      fontWeight: FontWeight.w600,
-                                      color: AppColors.primaryBlack,
-                                    ),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          Expanded(
+                            child: Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                Text(
+                                  destination['name'] ?? 'Destination',
+                                  style: GoogleFonts.montserrat(
+                                    fontSize: 20.0,
+                                    fontWeight: FontWeight.bold,
+                                    color: AppColors.primaryBlack,
                                   ),
-                                  const SizedBox(height: 4),
-                                  Row(
-                                    children: [
-                                      const Icon(Icons.location_on, size: 12, color: AppColors.primaryYellow),
-                                      const SizedBox(width: 4),
-                                      Text(
-                                        destination['region'] ?? 'Explore',
-                                        style: GoogleFonts.montserrat(
-                                          fontSize: 12,
-                                          color: AppColors.greyText,
-                                          fontWeight: FontWeight.w600,
-                                        ),
-                                      ),
-                                    ],
-                                  ),
-                                ],
-                              ),
-                            ),
-                            Container(
-                              padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 6),
-                              decoration: BoxDecoration(
-                                color: AppColors.primaryYellow.withOpacity(0.1),
-                                borderRadius: BorderRadius.circular(10),
-                              ),
-                              child: Text(
-                                'Starting ${destination['price'] ?? 'On Request'}',
-                                style: GoogleFonts.montserrat(
-                                  fontSize: 12,
-                                  fontWeight: FontWeight.w600,
-                                  color: AppColors.primaryBlack,
                                 ),
+                                const SizedBox(height: 6),
+                                Row(
+                                  children: [
+                                    const Icon(Icons.location_on, size: 14, color: AppColors.primaryYellow),
+                                    const SizedBox(width: 4),
+                                    Text(
+                                      destination['region'] ?? 'Explore',
+                                      style: GoogleFonts.montserrat(
+                                        fontSize: 13.0,
+                                        color: AppColors.greyText,
+                                        fontWeight: FontWeight.normal,
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                              ],
+                            ),
+                          ),
+                          Container(
+                            padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 8),
+                            decoration: BoxDecoration(
+                              color: AppColors.primaryYellow.withOpacity(0.15),
+                              borderRadius: BorderRadius.circular(10),
+                              border: Border.all(color: AppColors.primaryYellow.withOpacity(0.3)),
+                            ),
+                            child: Text(
+                              'Starting ${destination['price'] ?? 'On Request'}',
+                              style: GoogleFonts.montserrat(
+                                fontSize: 12.0,
+                                fontWeight: FontWeight.w600,
+                                color: AppColors.primaryBlack,
                               ),
                             ),
-                          ],
-                        ),
+                          ),
+                        ],
                       ),
-                      const SizedBox(height: 20),
+                      const SizedBox(height: 24),
                       _buildStatsRow(),
                       const SizedBox(height: 28),
-                      FadeInUp(
-                        delay: const Duration(milliseconds: 100),
-                        child: Text(
-                          'Experience the Journey',
-                          style: GoogleFonts.montserrat(
-                            fontSize: 16,
-                            fontWeight: FontWeight.w600,
-                            color: AppColors.primaryBlack,
-                          ),
+                      Text(
+                        'Experience the Journey',
+                        style: GoogleFonts.montserrat(
+                          fontSize: 16.0,
+                          fontWeight: FontWeight.bold,
+                          color: AppColors.primaryBlack,
                         ),
                       ),
-                      const SizedBox(height: 10),
-                      FadeInUp(
-                        delay: const Duration(milliseconds: 200),
-                        child: Text(
-                          _stripHtml(destination['fullDescription'] ?? destination['location'] ?? 'Explore the beauty of this destination with OHC.'),
-                          style: GoogleFonts.montserrat(
-                            fontSize: 13,
-                            color: Colors.grey[700],
-                            height: 1.5,
-                          ),
+                      const SizedBox(height: 12),
+                      Text(
+                        _stripHtml(destination['fullDescription'] ?? destination['location'] ?? 'Explore the beauty of this destination with OHC.'),
+                        style: GoogleFonts.montserrat(
+                          fontSize: 13.0,
+                          color: AppColors.primaryBlack,
+                          height: 1.6,
                         ),
                       ),
                       const SizedBox(height: 32),
@@ -182,42 +175,39 @@ class _DestinationDetailsViewState extends State<DestinationDetailsView> {
     return SliverToBoxAdapter(
       child: Stack(
         children: [
-          ClipPath(
-            clipper: WaveClipper(),
-            child: Container(
-              height: 420,
-              width: double.infinity,
-              child: Stack(
-                children: [
-                  PageView.builder(
-                    controller: _pageController,
-                    onPageChanged: (v) => setState(() => _currentPage = v),
-                    itemCount: images.length,
-                    itemBuilder: (context, i) => _buildImage(images[i]),
-                  ),
-                  Positioned(
-                    bottom: 80,
-                    left: 0,
-                    right: 0,
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: List.generate(
-                        images.length,
-                        (index) => AnimatedContainer(
-                          duration: const Duration(milliseconds: 300),
-                          margin: const EdgeInsets.symmetric(horizontal: 4),
-                          height: 8,
-                          width: _currentPage == index ? 24 : 8,
-                          decoration: BoxDecoration(
-                            color: _currentPage == index ? AppColors.primaryYellow : Colors.white.withOpacity(0.5),
-                            borderRadius: BorderRadius.circular(4),
-                          ),
+          Container(
+            height: 350,
+            width: double.infinity,
+            child: Stack(
+              children: [
+                PageView.builder(
+                  controller: _pageController,
+                  onPageChanged: (v) => setState(() => _currentPage = v),
+                  itemCount: images.length,
+                  itemBuilder: (context, i) => _buildImage(images[i]),
+                ),
+                Positioned(
+                  bottom: 20,
+                  left: 0,
+                  right: 0,
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: List.generate(
+                      images.length,
+                      (index) => AnimatedContainer(
+                        duration: const Duration(milliseconds: 300),
+                        margin: const EdgeInsets.symmetric(horizontal: 4),
+                        height: 8,
+                        width: _currentPage == index ? 24 : 8,
+                        decoration: BoxDecoration(
+                          color: _currentPage == index ? AppColors.primaryYellow : Colors.white.withOpacity(0.5),
+                          borderRadius: BorderRadius.circular(4),
                         ),
                       ),
                     ),
                   ),
-                ],
-              ),
+                ),
+              ],
             ),
           ),
         ],
@@ -244,22 +234,27 @@ class _DestinationDetailsViewState extends State<DestinationDetailsView> {
 
   Widget _buildStatsRow() {
     final stats = destination['travelStats'] ?? {};
-    return FadeInUp(
-      delay: const Duration(milliseconds: 50),
-      child: Container(
-        padding: const EdgeInsets.all(20),
-        decoration: BoxDecoration(
-          color: const Color(0xFFF8F9FB),
-          borderRadius: BorderRadius.circular(20),
-        ),
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.spaceAround,
-          children: [
-            _buildStatItem(Icons.wb_sunny_outlined, 'Best Time', stats['bestTime'] ?? 'Oct - Mar'),
-            _buildStatItem(Icons.thermostat_outlined, 'Temp', stats['temp'] ?? '22° - 30°'),
-            _buildStatItem(Icons.flight_takeoff, 'Access', 'Easy'),
-          ],
-        ),
+    return Container(
+      padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 16),
+      decoration: BoxDecoration(
+        color: AppColors.primaryWhite,
+        borderRadius: BorderRadius.circular(20),
+        boxShadow: [
+          BoxShadow(
+            color: AppColors.primaryBlack.withOpacity(0.06),
+            blurRadius: 20,
+            offset: const Offset(0, 8),
+          ),
+        ],
+        border: Border.all(color: AppColors.borderGrey.withOpacity(0.5)),
+      ),
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceAround,
+        children: [
+          _buildStatItem(Icons.wb_sunny_outlined, 'Best Time', stats['bestTime'] ?? 'Oct - Mar'),
+          _buildStatItem(Icons.thermostat_outlined, 'Temp', stats['temp'] ?? '22° - 30°'),
+          _buildStatItem(Icons.flight_takeoff, 'Access', 'Easy'),
+        ],
       ),
     );
   }
@@ -267,11 +262,25 @@ class _DestinationDetailsViewState extends State<DestinationDetailsView> {
   Widget _buildStatItem(IconData icon, String label, String value) {
     return Column(
       children: [
-        Icon(icon, size: 20, color: AppColors.primaryYellow),
-        const SizedBox(height: 6),
-        Text(label, style: GoogleFonts.montserrat(fontSize: 10, color: Colors.grey[500], fontWeight: FontWeight.w600)),
-        const SizedBox(height: 2),
-        Text(value, style: GoogleFonts.montserrat(fontSize: 12, color: AppColors.primaryBlack, fontWeight: FontWeight.w800)),
+        Icon(icon, size: 24, color: AppColors.primaryYellow),
+        const SizedBox(height: 8),
+        Text(
+          label,
+          style: GoogleFonts.montserrat(
+            fontSize: 12.0,
+            color: AppColors.greyText,
+            fontWeight: FontWeight.normal,
+          ),
+        ),
+        const SizedBox(height: 4),
+        Text(
+          value,
+          style: GoogleFonts.montserrat(
+            fontSize: 13.0,
+            color: AppColors.primaryBlack,
+            fontWeight: FontWeight.w600,
+          ),
+        ),
       ],
     );
   }
@@ -281,38 +290,40 @@ class _DestinationDetailsViewState extends State<DestinationDetailsView> {
       bottom: 20,
       left: 20,
       right: 20,
-      child: FadeInUp(
-        child: Container(
-          decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(20),
-            boxShadow: [
-              BoxShadow(
-                color: Colors.black.withOpacity(0.1),
-                blurRadius: 20,
-                offset: const Offset(0, 10),
-              ),
-            ],
+      child: Container(
+        decoration: BoxDecoration(
+          borderRadius: BorderRadius.circular(20),
+          boxShadow: [
+            BoxShadow(
+              color: AppColors.primaryBlack.withOpacity(0.15),
+              blurRadius: 24,
+              offset: const Offset(0, 10),
+            ),
+          ],
+        ),
+        child: ElevatedButton(
+          onPressed: () => _showInquiryForm(context),
+          style: ElevatedButton.styleFrom(
+            backgroundColor: AppColors.primaryYellow,
+            foregroundColor: AppColors.primaryBlack,
+            padding: const EdgeInsets.symmetric(vertical: 18),
+            shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
+            elevation: 0,
           ),
-          child: ElevatedButton(
-            onPressed: () => _showInquiryForm(context),
-            style: ElevatedButton.styleFrom(
-              backgroundColor: AppColors.primaryBlack,
-              foregroundColor: Colors.white,
-              padding: const EdgeInsets.symmetric(vertical: 18),
-              shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
-              elevation: 0,
-            ),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                Text(
-                  'ENQUIRE NOW',
-                  style: GoogleFonts.montserrat(fontWeight: FontWeight.w600, fontSize: 14, letterSpacing: 1),
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Text(
+                'ENQUIRE NOW',
+                style: GoogleFonts.montserrat(
+                  fontWeight: FontWeight.bold,
+                  fontSize: 14.0,
+                  letterSpacing: 1.2,
                 ),
-                const SizedBox(width: 10),
-                const Icon(Icons.arrow_forward_ios_rounded, size: 14),
-              ],
-            ),
+              ),
+              const SizedBox(width: 10),
+              const Icon(Icons.arrow_forward_ios_rounded, size: 16),
+            ],
           ),
         ),
       ),
@@ -407,20 +418,20 @@ class _InquiryFormSheetState extends State<InquiryFormSheet> {
               Center(
                 child: Container(
                   width: 40, height: 4,
-                  decoration: BoxDecoration(color: Colors.grey[300], borderRadius: BorderRadius.circular(2)),
+                  decoration: BoxDecoration(color: AppColors.borderGrey, borderRadius: BorderRadius.circular(2)),
                 ),
               ),
               const SizedBox(height: 24),
               Text(
                 'Request an Itinerary',
-                style: GoogleFonts.montserrat(fontSize: 20, fontWeight: FontWeight.w600, color: AppColors.primaryBlack),
+                style: GoogleFonts.montserrat(fontSize: 16.0, fontWeight: FontWeight.bold, color: AppColors.primaryBlack),
               ),
-              const SizedBox(height: 4),
+              const SizedBox(height: 6),
               Text(
                 'Complete the details below to begin planning your trip to ${widget.destination['name']}.',
-                style: GoogleFonts.montserrat(fontSize: 12, color: AppColors.greyText),
+                style: GoogleFonts.montserrat(fontSize: 13.0, color: AppColors.greyText),
               ),
-              const SizedBox(height: 28),
+              const SizedBox(height: 24),
               Row(
                 children: [
                   Expanded(child: _buildField(_nameCtrl, 'Full Name', Icons.person_outline)),
@@ -454,17 +465,17 @@ class _InquiryFormSheetState extends State<InquiryFormSheet> {
                 child: ElevatedButton(
                   onPressed: _isSubmitting ? null : _submit,
                   style: ElevatedButton.styleFrom(
-                    backgroundColor: AppColors.primaryBlack,
-                    foregroundColor: Colors.white,
+                    backgroundColor: AppColors.primaryYellow,
+                    foregroundColor: AppColors.primaryBlack,
                     padding: const EdgeInsets.symmetric(vertical: 18),
                     shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
                   ),
                   child: _isSubmitting 
-                    ? const SizedBox(height: 20, width: 20, child: CircularProgressIndicator(strokeWidth: 2, color: Colors.white))
+                    ? const SizedBox(height: 20, width: 20, child: CircularProgressIndicator(strokeWidth: 2, color: AppColors.primaryBlack))
                     : Row(
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
-                          Text('SUBMIT INQUIRY', style: GoogleFonts.montserrat(fontWeight: FontWeight.w600, fontSize: 15)),
+                          Text('SUBMIT INQUIRY', style: GoogleFonts.montserrat(fontWeight: FontWeight.bold, fontSize: 14.0)),
                           const SizedBox(width: 8),
                           const Icon(Icons.send_rounded, size: 16),
                         ],
@@ -475,7 +486,7 @@ class _InquiryFormSheetState extends State<InquiryFormSheet> {
               Center(
                 child: Text(
                   'YOUR INFORMATION IS STRICTLY CONFIDENTIAL.',
-                  style: GoogleFonts.montserrat(fontSize: 10, color: Colors.grey, fontWeight: FontWeight.bold, letterSpacing: 1),
+                  style: GoogleFonts.montserrat(fontSize: 11.0, color: AppColors.greyText, fontWeight: FontWeight.normal, letterSpacing: 1),
                 ),
               ),
             ],
@@ -490,11 +501,11 @@ class _InquiryFormSheetState extends State<InquiryFormSheet> {
       controller: ctrl,
       keyboardType: keyboard,
       maxLines: maxLines,
-      style: GoogleFonts.montserrat(fontSize: 12, fontWeight: FontWeight.w600),
+      style: GoogleFonts.montserrat(fontSize: 13.0, fontWeight: FontWeight.normal),
       decoration: InputDecoration(
         hintText: isOptional ? '$hint (Optional)' : hint,
-        hintStyle: GoogleFonts.montserrat(fontSize: 12, color: Colors.grey),
-        prefixIcon: Icon(icon, size: 16, color: Colors.grey),
+        hintStyle: GoogleFonts.montserrat(fontSize: 13.0, color: AppColors.greyText),
+        prefixIcon: Icon(icon, size: 18, color: AppColors.greyText),
         filled: true,
         fillColor: const Color(0xFFF8F9FB),
         border: OutlineInputBorder(borderRadius: BorderRadius.circular(12), borderSide: BorderSide.none),
@@ -524,11 +535,14 @@ class _InquiryFormSheetState extends State<InquiryFormSheet> {
         decoration: BoxDecoration(color: const Color(0xFFF8F9FB), borderRadius: BorderRadius.circular(12)),
         child: Row(
           children: [
-            const Icon(Icons.calendar_today_outlined, size: 18, color: Colors.grey),
+            const Icon(Icons.calendar_today_outlined, size: 18, color: AppColors.greyText),
             const SizedBox(width: 12),
-            Text(
-              date == null ? label : DateFormat('MM/dd/yyyy').format(date),
-              style: GoogleFonts.montserrat(fontSize: 13, color: date == null ? Colors.grey : AppColors.primaryBlack, fontWeight: FontWeight.w600),
+            Expanded(
+              child: Text(
+                date == null ? label : DateFormat('MM/dd/yyyy').format(date),
+                style: GoogleFonts.montserrat(fontSize: 13.0, color: date == null ? AppColors.greyText : AppColors.primaryBlack, fontWeight: FontWeight.normal),
+                overflow: TextOverflow.ellipsis,
+              ),
             ),
           ],
         ),
@@ -543,8 +557,8 @@ class _InquiryFormSheetState extends State<InquiryFormSheet> {
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
-          Icon(label == 'Adults' ? Icons.person_outline : Icons.child_care_outlined, size: 18, color: Colors.grey),
-          Text(val.toString(), style: GoogleFonts.montserrat(fontSize: 14, fontWeight: FontWeight.w900)),
+          Icon(label == 'Adults' ? Icons.person_outline : Icons.child_care_outlined, size: 18, color: AppColors.greyText),
+          Text(val.toString(), style: GoogleFonts.montserrat(fontSize: 13.0, fontWeight: FontWeight.normal)),
           Row(
             children: [
               InkWell(onTap: () => val > 0 ? onChange(val - 1) : null, child: const Icon(Icons.remove, size: 16)),
@@ -560,7 +574,7 @@ class _InquiryFormSheetState extends State<InquiryFormSheet> {
   void _submit() async {
     if (!_formKey.currentState!.validate()) return;
     if (_checkIn == null || _checkOut == null) {
-      Get.snackbar('Error', 'Please select dates', backgroundColor: Colors.red, colorText: Colors.white);
+      Get.snackbar('Error', 'Please select dates', backgroundColor: AppColors.brownAccent, colorText: Colors.white);
       return;
     }
 
@@ -584,12 +598,12 @@ class _InquiryFormSheetState extends State<InquiryFormSheet> {
       final success = await controller.submitEnquiry(payload);
       if (success) {
         Get.back();
-        Get.snackbar('Success', 'Inquiry submitted successfully!', backgroundColor: Colors.green, colorText: Colors.white);
+        Get.snackbar('Success', 'Inquiry submitted successfully!', backgroundColor: AppColors.primaryYellow, colorText: Colors.white);
       } else {
-        Get.snackbar('Error', 'Submission failed. Please try again.', backgroundColor: Colors.red, colorText: Colors.white);
+        Get.snackbar('Error', 'Submission failed. Please try again.', backgroundColor: AppColors.brownAccent, colorText: Colors.white);
       }
     } catch (e) {
-      Get.snackbar('Error', 'Something went wrong', backgroundColor: Colors.red, colorText: Colors.white);
+      Get.snackbar('Error', 'Something went wrong', backgroundColor: AppColors.brownAccent, colorText: Colors.white);
     } finally {
       setState(() => _isSubmitting = false);
     }

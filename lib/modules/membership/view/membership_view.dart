@@ -33,8 +33,8 @@ class MembershipView extends GetView<MembershipController> {
                 const Text(
                   'Membership',
                   style: TextStyle(
-                    fontSize: 20,
-                    fontWeight: FontWeight.w800,
+                    fontSize: 15.0,
+                    fontWeight: FontWeight.normal,
                     color: AppColors.primaryBlack,
                   ),
                 ),
@@ -48,8 +48,8 @@ class MembershipView extends GetView<MembershipController> {
                   child: const Text(
                     'Current: Gold',
                     style: TextStyle(
-                      fontSize: 12,
-                      fontWeight: FontWeight.w700,
+                      fontSize: 12.0,
+                      fontWeight: FontWeight.normal,
                       color: AppColors.primaryBlack,
                     ),
                   ),
@@ -80,10 +80,10 @@ class MembershipView extends GetView<MembershipController> {
                         width: double.infinity,
                         padding: const EdgeInsets.all(22),
                         decoration: BoxDecoration(
-                          gradient: LinearGradient(
+                          gradient: const LinearGradient(
                             colors: [
                               AppColors.primaryBlack,
-                              AppColors.darkGrey,
+                              AppColors.greyText,
                             ],
                             begin: Alignment.topLeft,
                             end: Alignment.bottomRight,
@@ -117,15 +117,15 @@ class MembershipView extends GetView<MembershipController> {
                                       'Gold Member',
                                       style: TextStyle(
                                         color: AppColors.primaryYellow,
-                                        fontWeight: FontWeight.w800,
-                                        fontSize: 18,
+                                        fontWeight: FontWeight.normal,
+                                        fontSize: 14.0,
                                       ),
                                     ),
                                     Text(
                                       'Valid until Dec 2025',
                                       style: TextStyle(
                                         color: AppColors.greyText,
-                                        fontSize: 12,
+                                        fontSize: 12.0,
                                       ),
                                     ),
                                   ],
@@ -137,7 +137,7 @@ class MembershipView extends GetView<MembershipController> {
                               'Upgrade to Platinum for more benefits',
                               style: TextStyle(
                                 color: AppColors.primaryWhite,
-                                fontSize: 14,
+                                fontSize: 12.0,
                               ),
                             ),
                             const SizedBox(height: 14),
@@ -163,15 +163,15 @@ class MembershipView extends GetView<MembershipController> {
                                   style: TextStyle(
                                     color: AppColors.primaryWhite
                                         .withOpacity(0.6),
-                                    fontSize: 11,
+                                    fontSize: 12.0,
                                   ),
                                 ),
                                 const Text(
                                   '60%',
                                   style: TextStyle(
                                     color: AppColors.primaryYellow,
-                                    fontWeight: FontWeight.w700,
-                                    fontSize: 11,
+                                    fontWeight: FontWeight.normal,
+                                    fontSize: 12.0,
                                   ),
                                 ),
                               ],
@@ -189,8 +189,8 @@ class MembershipView extends GetView<MembershipController> {
                       child: Text(
                         'Choose a Plan',
                         style: TextStyle(
-                          fontSize: 18,
-                          fontWeight: FontWeight.w800,
+                          fontSize: 14.0,
+                          fontWeight: FontWeight.normal,
                           color: AppColors.primaryBlack,
                         ),
                       ),
@@ -336,10 +336,10 @@ class _PlanCard extends StatelessWidget {
                         children: [
                           Text(title,
                               style: const TextStyle(
-                                  fontSize: 20, fontWeight: FontWeight.w800)),
+                                  fontSize: 15.0, fontWeight: FontWeight.normal)),
                           Text(tagline,
                               style: const TextStyle(
-                                  fontSize: 12, color: AppColors.greyText)),
+                                  fontSize: 12.0, color: AppColors.greyText)),
                         ],
                       ),
                     ),
@@ -349,8 +349,8 @@ class _PlanCard extends StatelessWidget {
                           TextSpan(
                             text: price,
                             style: TextStyle(
-                              fontSize: 22,
-                              fontWeight: FontWeight.w900,
+                              fontSize: 15.0,
+                              fontWeight: FontWeight.normal,
                               color: isActive
                                   ? AppColors.primaryBlack
                                   : iconColor,
@@ -359,7 +359,7 @@ class _PlanCard extends StatelessWidget {
                           const TextSpan(
                             text: '/yr',
                             style: TextStyle(
-                              fontSize: 12,
+                              fontSize: 12.0,
                               color: AppColors.greyText,
                             ),
                           ),
@@ -391,7 +391,7 @@ class _PlanCard extends StatelessWidget {
                         Expanded(
                           child: Text(f,
                               style: const TextStyle(
-                                  fontSize: 13,
+                                  fontSize: 12.0,
                                   color: AppColors.primaryBlack)),
                         ),
                       ],
@@ -419,7 +419,7 @@ class _PlanCard extends StatelessWidget {
                     child: Text(
                       isActive ? 'Current Plan' : 'Get $title',
                       style: const TextStyle(
-                          fontWeight: FontWeight.w700, fontSize: 13), // Decreased from 14
+                          fontWeight: FontWeight.normal, fontSize: 12.0), // Decreased from 14
                     ),
                   ),
                 ),
@@ -440,8 +440,8 @@ class _PlanCard extends StatelessWidget {
                 child: const Text(
                   '✦ Current Plan',
                   style: TextStyle(
-                    fontWeight: FontWeight.w700,
-                    fontSize: 11,
+                    fontWeight: FontWeight.normal,
+                    fontSize: 12.0,
                     color: AppColors.primaryBlack,
                   ),
                 ),

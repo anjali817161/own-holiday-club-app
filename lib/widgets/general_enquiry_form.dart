@@ -40,7 +40,7 @@ class _GeneralEnquiryFormState extends State<GeneralEnquiryForm> {
         Get.snackbar(
           "Error", 
           "Failed to submit. Please try again later.",
-          backgroundColor: Colors.red,
+          backgroundColor: AppColors.brownAccent,
           colorText: Colors.white,
           snackPosition: SnackPosition.BOTTOM,
         );
@@ -49,7 +49,7 @@ class _GeneralEnquiryFormState extends State<GeneralEnquiryForm> {
       Get.snackbar(
         "Error", 
         "Something went wrong. Please check your connection.",
-        backgroundColor: Colors.red,
+        backgroundColor: AppColors.brownAccent,
         colorText: Colors.white,
         snackPosition: SnackPosition.BOTTOM,
       );
@@ -67,17 +67,17 @@ class _GeneralEnquiryFormState extends State<GeneralEnquiryForm> {
         content: Column(
           mainAxisSize: MainAxisSize.min,
           children: [
-            const Icon(Icons.check_circle_rounded, color: Colors.green, size: 70),
+            const Icon(Icons.check_circle_rounded, color: AppColors.primaryYellow, size: 70),
             const SizedBox(height: 20),
             const Text(
               "Submission Successful",
-              style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+              style: TextStyle(fontSize: 15.0, fontWeight: FontWeight.normal),
             ),
             const SizedBox(height: 10),
             const Text(
               "Thank you for your interest. We will contact you shortly.",
               textAlign: TextAlign.center,
-              style: TextStyle(color: Colors.grey),
+              style: TextStyle(color: AppColors.greyText),
             ),
             const SizedBox(height: 24),
             SizedBox(
@@ -94,7 +94,7 @@ class _GeneralEnquiryFormState extends State<GeneralEnquiryForm> {
                   Get.back(); // Close form
                   Get.offAllNamed('/dashboard'); // Back to home
                 },
-                child: const Text("CLOSE", style: TextStyle(fontWeight: FontWeight.bold)),
+                child: const Text("CLOSE", style: TextStyle(fontWeight: FontWeight.normal)),
               ),
             ),
           ],
@@ -125,7 +125,7 @@ class _GeneralEnquiryFormState extends State<GeneralEnquiryForm> {
                     width: 40,
                     height: 4,
                     decoration: BoxDecoration(
-                      color: Colors.grey[300],
+                      color: AppColors.borderGrey,
                       borderRadius: BorderRadius.circular(10),
                     ),
                   ),
@@ -134,15 +134,15 @@ class _GeneralEnquiryFormState extends State<GeneralEnquiryForm> {
                 const Text(
                   "Enquiry Form",
                   style: TextStyle(
-                    fontSize: 24,
-                    fontWeight: FontWeight.w900,
+                    fontSize: 13.0,
+                    fontWeight: FontWeight.normal,
                     color: AppColors.primaryBlack,
                   ),
                 ),
                 const SizedBox(height: 8),
                 const Text(
                   "Please provide your details below.",
-                  style: TextStyle(fontSize: 14, color: Colors.grey),
+                  style: TextStyle(fontSize: 12.0, color: AppColors.greyText),
                 ),
                 const SizedBox(height: 32),
                 
@@ -190,7 +190,7 @@ class _GeneralEnquiryFormState extends State<GeneralEnquiryForm> {
                       ? const SizedBox(height: 20, width: 20, child: CircularProgressIndicator(color: AppColors.primaryBlack, strokeWidth: 2))
                       : const Text(
                           "SUBMIT",
-                          style: TextStyle(fontWeight: FontWeight.w900, fontSize: 16, letterSpacing: 1),
+                          style: TextStyle(fontWeight: FontWeight.normal, fontSize: 13.0, letterSpacing: 1),
                         ),
                   ),
                 ),
@@ -215,7 +215,7 @@ class _GeneralEnquiryFormState extends State<GeneralEnquiryForm> {
       children: [
         Text(
           label,
-          style: const TextStyle(fontSize: 14, fontWeight: FontWeight.bold, color: AppColors.primaryBlack),
+          style: const TextStyle(fontSize: 12.0, fontWeight: FontWeight.normal, color: AppColors.primaryBlack),
         ),
         const SizedBox(height: 8),
         TextFormField(
@@ -224,17 +224,17 @@ class _GeneralEnquiryFormState extends State<GeneralEnquiryForm> {
           validator: validator,
           decoration: InputDecoration(
             hintText: hint,
-            hintStyle: TextStyle(color: Colors.grey[400], fontSize: 14),
+            hintStyle: TextStyle(color: AppColors.greyText, fontSize: 12.0),
             prefixIcon: Icon(icon, size: 20, color: AppColors.primaryYellow),
             filled: true,
-            fillColor: Colors.grey[50],
+            fillColor: AppColors.lightGrey,
             border: OutlineInputBorder(
               borderRadius: BorderRadius.circular(12),
-              borderSide: BorderSide(color: Colors.grey[200]!),
+              borderSide: BorderSide(color: AppColors.borderGrey!),
             ),
             enabledBorder: OutlineInputBorder(
               borderRadius: BorderRadius.circular(12),
-              borderSide: BorderSide(color: Colors.grey[200]!),
+              borderSide: BorderSide(color: AppColors.borderGrey!),
             ),
             focusedBorder: OutlineInputBorder(
               borderRadius: BorderRadius.circular(12),

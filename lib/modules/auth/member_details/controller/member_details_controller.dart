@@ -4,11 +4,21 @@ import '../../login/model/user_model.dart';
 import '../../../../routes/app_pages.dart';
 import '../../../account/controller/account_controller.dart';
 import '../../../../data/repository/auth_repo.dart';
+import 'package:own_holiday_app/utils/app_colors.dart';
 
 class MemberDetailsController extends GetxController {
   final AuthRepo authRepo = Get.find<AuthRepo>();
   final Rxn<UserModel> user = Rxn<UserModel>();
   final RxBool isBooking = false.obs;
+  final RxInt expandedSection = (-1).obs;
+
+  void toggleSection(int index) {
+    if (expandedSection.value == index) {
+      expandedSection.value = -1;
+    } else {
+      expandedSection.value = index;
+    }
+  }
 
   @override
   void onInit() {
@@ -52,7 +62,7 @@ class MemberDetailsController extends GetxController {
           'Request Submitted', 
           'Your holiday request for slot $slot has been received. Our team will contact you within 12 hours.',
           snackPosition: SnackPosition.TOP,
-          backgroundColor: Colors.green,
+          backgroundColor: AppColors.primaryYellow,
           colorText: Colors.white,
           duration: const Duration(seconds: 5),
         );
@@ -65,7 +75,7 @@ class MemberDetailsController extends GetxController {
         'Submission Error', 
         'We encountered an issue submitting your request. Please check your network or try again.',
         snackPosition: SnackPosition.TOP,
-        backgroundColor: Colors.red,
+        backgroundColor: AppColors.brownAccent,
         colorText: Colors.white,
       );
     } finally {

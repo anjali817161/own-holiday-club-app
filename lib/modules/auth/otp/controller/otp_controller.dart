@@ -56,7 +56,7 @@ class OtpController extends GetxController {
         Get.snackbar(
           'Error',
           data['message'] ?? 'Failed to resend OTP',
-          backgroundColor: Colors.redAccent,
+          backgroundColor: AppColors.brownAccent,
           colorText: Colors.white,
         );
       }
@@ -64,7 +64,7 @@ class OtpController extends GetxController {
       Get.snackbar(
         'Error',
         'Something went wrong. Please try again.',
-        backgroundColor: Colors.redAccent,
+        backgroundColor: AppColors.brownAccent,
         colorText: Colors.white,
       );
     } finally {
@@ -95,7 +95,7 @@ class OtpController extends GetxController {
         Get.snackbar(
           'Verification Failed',
           data['message'] ?? 'Invalid OTP',
-          backgroundColor: Colors.redAccent,
+          backgroundColor: AppColors.brownAccent,
           colorText: Colors.white,
         );
       }
@@ -103,7 +103,7 @@ class OtpController extends GetxController {
       Get.snackbar(
         'Error',
         'Verification failed. Please try again.',
-        backgroundColor: Colors.redAccent,
+        backgroundColor: AppColors.brownAccent,
         colorText: Colors.white,
       );
     } finally {

@@ -4,6 +4,7 @@ import 'package:own_holiday_app/routes/app_pages.dart';
 import 'package:own_holiday_app/data/repository/auth_repo.dart';
 import 'package:own_holiday_app/modules/auth/login/model/user_model.dart';
 import 'package:own_holiday_app/modules/account/controller/account_controller.dart';
+import 'package:own_holiday_app/utils/app_colors.dart';
 import 'dart:convert';
 
 class MemberLoginController extends GetxController {
@@ -32,7 +33,7 @@ class MemberLoginController extends GetxController {
         'Error',
         'Please enter Member ID and Password',
         snackPosition: SnackPosition.BOTTOM,
-        backgroundColor: Colors.red,
+        backgroundColor: AppColors.brownAccent,
         colorText: Colors.white,
       );
       return;
@@ -63,7 +64,7 @@ class MemberLoginController extends GetxController {
           'Success',
           data['message'] ?? 'Login successful',
           snackPosition: SnackPosition.BOTTOM,
-          backgroundColor: Colors.green,
+          backgroundColor: AppColors.primaryYellow,
           colorText: Colors.white,
         );
         Get.offAllNamed(Routes.MEMBER_DETAILS); // Navigate to member details page
@@ -72,7 +73,7 @@ class MemberLoginController extends GetxController {
           'Login Failed',
           data['message'] ?? 'Invalid credentials',
           snackPosition: SnackPosition.BOTTOM,
-          backgroundColor: Colors.red,
+          backgroundColor: AppColors.brownAccent,
           colorText: Colors.white,
         );
       }
@@ -81,7 +82,7 @@ class MemberLoginController extends GetxController {
         'Error',
         'Something went wrong. Please try again.',
         snackPosition: SnackPosition.BOTTOM,
-        backgroundColor: Colors.red,
+        backgroundColor: AppColors.brownAccent,
         colorText: Colors.white,
       );
     } finally {

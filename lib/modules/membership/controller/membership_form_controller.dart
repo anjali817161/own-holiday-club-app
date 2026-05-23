@@ -5,6 +5,7 @@ import 'package:own_holiday_app/data/repository/membership_repo.dart';
 import 'package:own_holiday_app/data/repository/auth_repo.dart';
 import 'package:own_holiday_app/modules/auth/login/model/user_model.dart';
 import 'package:own_holiday_app/modules/account/controller/account_controller.dart';
+import 'package:own_holiday_app/utils/app_colors.dart';
 import 'package:own_holiday_app/modules/membership/model/membership_tier.dart';
 import 'package:own_holiday_app/routes/app_pages.dart';
 import 'dart:convert';
@@ -122,12 +123,12 @@ class MembershipFormController extends GetxController {
     if (currentStep.value == 1) {
       if (!isMobileVerified.value) {
         Get.snackbar('Verification Required', 'Please verify your mobile number first',
-            backgroundColor: Colors.orange, colorText: Colors.white);
+            backgroundColor: AppColors.primaryYellow, colorText: Colors.white);
         return;
       }
       if (!isEmailVerified.value) {
         Get.snackbar('Verification Required', 'Please verify your email address first',
-            backgroundColor: Colors.orange, colorText: Colors.white);
+            backgroundColor: AppColors.primaryYellow, colorText: Colors.white);
         return;
       }
 
@@ -144,12 +145,12 @@ class MembershipFormController extends GetxController {
         print("Saved Step 1 details to local storage successfully!");
 
         Get.snackbar('Success', 'Details saved successfully!',
-            backgroundColor: Colors.green, colorText: Colors.white);
+            backgroundColor: AppColors.primaryYellow, colorText: Colors.white);
         currentStep.value = 2;
       } catch (e) {
         print("Error saving step 1 locally: $e");
         Get.snackbar('Error', 'Failed to save details locally: $e',
-            backgroundColor: Colors.red, colorText: Colors.white);
+            backgroundColor: AppColors.brownAccent, colorText: Colors.white);
       } finally {
         isLoading.value = false;
       }
@@ -281,7 +282,7 @@ class MembershipFormController extends GetxController {
   Future<void> pickFile(String docType) async {
     if (docType == 'addressProof') {
       if (selectedAddressProof.value == null || selectedAddressProof.value!.isEmpty) {
-        Get.snackbar('Validation Error', 'You have to select proof type first', backgroundColor: Colors.orange, colorText: Colors.white);
+        Get.snackbar('Validation Error', 'You have to select proof type first', backgroundColor: AppColors.primaryYellow, colorText: Colors.white);
         return;
       }
     }
@@ -419,24 +420,24 @@ class MembershipFormController extends GetxController {
 
   Future<void> proceedToPayment() async {
     if (profileImageBase64.value.isEmpty) {
-      Get.snackbar('Validation Error', 'Please upload your Profile Image', backgroundColor: Colors.redAccent, colorText: Colors.white);
+      Get.snackbar('Validation Error', 'Please upload your Profile Image', backgroundColor: AppColors.brownAccent, colorText: Colors.white);
       return;
     }
     if (idProofBase64.value.isEmpty) {
-      Get.snackbar('Validation Error', 'Please upload your Aadhaar Card', backgroundColor: Colors.redAccent, colorText: Colors.white);
+      Get.snackbar('Validation Error', 'Please upload your Aadhaar Card', backgroundColor: AppColors.brownAccent, colorText: Colors.white);
       return;
     }
     if (selectedAddressProof.value == null || selectedAddressProof.value!.isEmpty) {
-      Get.snackbar('Validation Error', 'Please select an Address Proof Type', backgroundColor: Colors.redAccent, colorText: Colors.white);
+      Get.snackbar('Validation Error', 'Please select an Address Proof Type', backgroundColor: AppColors.brownAccent, colorText: Colors.white);
       return;
     }
     if (addressProofBase64.value.isEmpty) {
-      Get.snackbar('Validation Error', 'Please upload your Address Proof', backgroundColor: Colors.redAccent, colorText: Colors.white);
+      Get.snackbar('Validation Error', 'Please upload your Address Proof', backgroundColor: AppColors.brownAccent, colorText: Colors.white);
       return;
     }
     if (!isConsentChecked.value) {
       Get.snackbar('Validation Error', 'Please agree to the Terms & Conditions',
-          backgroundColor: Colors.redAccent, colorText: Colors.white);
+          backgroundColor: AppColors.brownAccent, colorText: Colors.white);
       return;
     }
 
@@ -521,7 +522,7 @@ class MembershipFormController extends GetxController {
 
   void _handlePaymentError(PaymentFailureResponse response) {
     Get.snackbar('Payment Failed', response.message ?? 'Unknown error',
-        backgroundColor: Colors.red, colorText: Colors.white);
+        backgroundColor: AppColors.brownAccent, colorText: Colors.white);
   }
 
   void _handleExternalWallet(ExternalWalletResponse response) {

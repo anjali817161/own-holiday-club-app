@@ -850,19 +850,8 @@ class _ExperienceCardState extends State<_ExperienceCard> {
               ),
             ),
             Positioned.fill(
-              child: DecoratedBox(
-                decoration: BoxDecoration(
-                  gradient: LinearGradient(
-                    begin: Alignment.topCenter,
-                    end: Alignment.bottomCenter,
-                    stops: const [0.0, 0.5, 1.0],
-                    colors: [
-                      Colors.transparent,
-                      Colors.black.withOpacity(0.15),
-                      Colors.black.withOpacity(0.65),
-                    ],
-                  ),
-                ),
+              child: Container(
+                color: Colors.transparent,
               ),
             ),
             Positioned(
@@ -1041,22 +1030,11 @@ class _HeroCarouselState extends State<_HeroCarousel> {
             },
           ),
         ),
-        // Gradient overlay — identical to original, placed static over images
+        // Gradient overlay — (Removed color overlay from images)
         Positioned.fill(
           child: IgnorePointer(
-            child: DecoratedBox(
-              decoration: BoxDecoration(
-                gradient: LinearGradient(
-                  begin: Alignment.topCenter,
-                  end: Alignment.bottomCenter,
-                  stops: const [0.0, 0.45, 1.0],
-                  colors: [
-                    Colors.black.withOpacity(0.15),
-                    Colors.black.withOpacity(0.35),
-                    Colors.black.withOpacity(0.75),
-                  ],
-                ),
-              ),
+            child: Container(
+              color: Colors.transparent,
             ),
           ),
         ),
@@ -1097,13 +1075,6 @@ class _HeroCarouselState extends State<_HeroCarousel> {
                       fontSize: 44,
                       fontWeight: FontWeight.w600,
                       height: 1.1,
-                      shadows: [
-                        Shadow(
-                          color: Colors.black54,
-                          blurRadius: 12,
-                          offset: Offset(0, 4),
-                        ),
-                      ],
                     ),
                   ),
                 ),
@@ -1117,13 +1088,6 @@ class _HeroCarouselState extends State<_HeroCarousel> {
                       fontSize: 14,
                       fontWeight: FontWeight.w500,
                       height: 1.5,
-                      shadows: const [
-                        Shadow(
-                          color: Colors.black54,
-                          blurRadius: 8,
-                          offset: Offset(0, 2),
-                        ),
-                      ],
                     ),
                   ),
                 ),

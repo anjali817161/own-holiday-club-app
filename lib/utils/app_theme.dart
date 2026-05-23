@@ -17,23 +17,23 @@ class AppTheme {
       fontFamily: GoogleFonts.montserrat().fontFamily,
       textTheme: base.copyWith(
         displayLarge: GoogleFonts.montserrat(
-          fontSize: 26,
-          fontWeight: FontWeight.w600,
+          fontSize: 22.0,
+          fontWeight: FontWeight.bold,
           color: AppColors.primaryBlack,
         ),
         titleLarge: GoogleFonts.montserrat(
-          fontSize: 20,
+          fontSize: 18.0,
           fontWeight: FontWeight.w600,
           color: AppColors.primaryBlack,
         ),
         bodyLarge: GoogleFonts.montserrat(
-          fontSize: 15,
-          fontWeight: FontWeight.w400,
+          fontSize: 14.0,
+          fontWeight: FontWeight.normal,
           color: AppColors.primaryBlack,
         ),
         bodyMedium: GoogleFonts.montserrat(
-          fontSize: 13,
-          fontWeight: FontWeight.w400,
+          fontSize: 12.0,
+          fontWeight: FontWeight.normal,
           color: AppColors.greyText,
         ),
       ),
@@ -47,8 +47,8 @@ class AppTheme {
           padding: const EdgeInsets.symmetric(horizontal: 30, vertical: 16),
           elevation: 0,
           textStyle: GoogleFonts.montserrat(
-            fontSize: 16,
-            fontWeight: FontWeight.w600,
+            fontSize: 14.0,
+            fontWeight: FontWeight.normal,
           ),
         ),
       ),
@@ -57,8 +57,8 @@ class AppTheme {
         elevation: 0,
         centerTitle: false,
         titleTextStyle: GoogleFonts.montserrat(
-          fontSize: 20,
-          fontWeight: FontWeight.w600,
+          fontSize: 16.0,
+          fontWeight: FontWeight.normal,
           color: AppColors.primaryBlack,
         ),
         iconTheme: const IconThemeData(color: AppColors.primaryBlack),

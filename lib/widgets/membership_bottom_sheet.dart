@@ -21,9 +21,9 @@ class MembershipBottomSheet {
       builder: (context) {
         return Container(
           height: MediaQuery.of(context).size.height * 0.90,
-          decoration: BoxDecoration(
-            color: AppColors.primaryBlack.withOpacity(0.95),
-            borderRadius: const BorderRadius.vertical(top: Radius.circular(40)),
+          decoration: const BoxDecoration(
+            color: AppColors.scaffoldBg,
+            borderRadius: BorderRadius.vertical(top: Radius.circular(40)),
           ),
           child: BackdropFilter(
             filter: ImageFilter.blur(sigmaX: 10, sigmaY: 10),
@@ -41,15 +41,15 @@ class MembershipBottomSheet {
                         width: 40,
                         height: 4,
                         decoration: BoxDecoration(
-                          color: Colors.white24,
+                          color: AppColors.primaryBlack.withOpacity(0.24),
                           borderRadius: BorderRadius.circular(10),
                         ),
                       ),
                       IconButton(
                         onPressed: () => Navigator.pop(context),
-                        icon: const Icon(Icons.close_rounded, color: Colors.white70, size: 24),
+                        icon: Icon(Icons.close_rounded, color: AppColors.primaryBlack.withOpacity(0.7), size: 24),
                         style: IconButton.styleFrom(
-                          backgroundColor: Colors.white10,
+                          backgroundColor: AppColors.primaryBlack.withOpacity(0.1),
                           padding: const EdgeInsets.all(4),
                         ),
                       ),
@@ -60,11 +60,11 @@ class MembershipBottomSheet {
                 FadeInDown(
                   duration: const Duration(milliseconds: 500),
                   child: const Text(
-                    'CLUB MEMBERSHIPS',
+                     'CLUB MEMBERSHIPS',
                     style: TextStyle(
-                      fontSize: 26,
-                      fontWeight: FontWeight.w900,
-                      color: Colors.white,
+                      fontSize: 13.0,
+                      fontWeight: FontWeight.bold,
+                      color: AppColors.primaryBlack,
                       letterSpacing: 1.5,
                     ),
                   ),
@@ -75,9 +75,9 @@ class MembershipBottomSheet {
                   child: Text(
                     'Exclusive travel privileges for elite members.',
                     style: TextStyle(
-                      fontSize: 14,
-                      color: Colors.white.withOpacity(0.5),
-                      fontWeight: FontWeight.w400,
+                      fontSize: 12.0,
+                      color: AppColors.primaryBlack.withOpacity(0.6),
+                      fontWeight: FontWeight.w500,
                     ),
                   ),
                 ),
@@ -92,11 +92,11 @@ class MembershipBottomSheet {
                             itemBuilder: (context, index) => Container(
                               margin: const EdgeInsets.symmetric(horizontal: 10.0, vertical: 10.0),
                               child: Shimmer.fromColors(
-                                baseColor: Colors.black.withOpacity(0.5),
-                                highlightColor: Colors.black.withOpacity(0.2),
+                                baseColor: AppColors.borderGrey,
+                                highlightColor: AppColors.lightGrey,
                                 child: Container(
                                   decoration: BoxDecoration(
-                                    color: Colors.black,
+                                    color: AppColors.lightGrey,
                                     borderRadius: BorderRadius.circular(35),
                                   ),
                                 ),
@@ -148,12 +148,12 @@ class MembershipBottomSheet {
     return Container(
       margin: const EdgeInsets.symmetric(horizontal: 10, vertical: 10),
       decoration: BoxDecoration(
-        color: const Color(0xFF1A1A1A), // Dark card color
+        color: AppColors.primaryWhite,
         borderRadius: BorderRadius.circular(35),
-        border: Border.all(color: Colors.white.withOpacity(0.08), width: 1),
+        border: Border.all(color: AppColors.borderGrey, width: 1),
         boxShadow: [
           BoxShadow(
-            color: Colors.black.withOpacity(0.5),
+            color: AppColors.primaryBlack.withOpacity(0.1),
             blurRadius: 30,
             offset: const Offset(0, 20),
           ),
@@ -186,7 +186,7 @@ class MembershipBottomSheet {
               children: [
                 // Plan Icon Header
                 Container(
-                  height: 100, // Increased from 60
+                  height: 100,
                   width: double.infinity,
                   decoration: BoxDecoration(
                     gradient: LinearGradient(
@@ -201,7 +201,7 @@ class MembershipBottomSheet {
                   child: Center(
                     child: Icon(
                       Icons.workspace_premium_rounded,
-                      size: 50, // Increased from 30
+                      size: 50,
                       color: planColor,
                     ),
                   ),
@@ -213,38 +213,15 @@ class MembershipBottomSheet {
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          children: [
-                            Expanded(
-                              child: Text(
-                                plan.name ?? 'Plan',
-                                style: const TextStyle(
-                                  fontSize: 15, 
-                                  fontWeight: FontWeight.w900,
-                                  color: Colors.white,
-                                ),
-                                maxLines: 2,
-                                overflow: TextOverflow.visible,
-                              ),
-                            ),
-                            Container(
-                              padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 4),
-                              decoration: BoxDecoration(
-                                color: Colors.red.withOpacity(0.15),
-                                borderRadius: BorderRadius.circular(20),
-                                border: Border.all(color: Colors.red.withOpacity(0.3)),
-                              ),
-                              child: Text(
-                                plan.adminFee != null ? 'Admin Fee: ₹ ${plan.adminFee!.replaceAll('₹', '').replaceAll('Rs.', '').replaceAll('Rs', '').trim()}' : 'Admin Fee: N/A',
-                                style: const TextStyle(
-                                  fontSize: 8.5,
-                                  fontWeight: FontWeight.w900,
-                                  color: Colors.redAccent,
-                                ),
-                              ),
-                            ),
-                          ],
+                        Text(
+                          plan.name ?? 'Plan',
+                          style: const TextStyle(
+                            fontSize: 15.0, 
+                            fontWeight: FontWeight.bold,
+                            color: AppColors.primaryBlack,
+                          ),
+                          maxLines: 2,
+                          overflow: TextOverflow.visible,
                         ),
                         const SizedBox(height: 8),
                         Wrap(
@@ -256,22 +233,23 @@ class MembershipBottomSheet {
                                 child: Text(
                                   '₹ ${plan.actuallyPrice!.replaceAll('₹', '').replaceAll('Rs.', '').replaceAll('Rs', '').trim()}',
                                   style: const TextStyle(
-                                    fontSize: 16,
-                                    fontWeight: FontWeight.w700,
-                                    color: Colors.white54,
+                                    fontSize: 13.0,
+                                    fontWeight: FontWeight.normal,
+                                    color: AppColors.greyText,
                                     decoration: TextDecoration.lineThrough,
-                                    decorationColor: Colors.redAccent,
+                                    decorationColor: AppColors.brownAccent,
                                     decorationThickness: 2.0,
                                   ),
                                 ),
                               ),
-                            Text(
-                              '₹ ${plan.price.replaceAll('₹', '').replaceAll('Rs.', '').replaceAll('Rs', '').trim()}',
+                             Text(
+                              '₹ ${plan.price.replaceAll('₹', '').replaceAll('Rs.', '').replaceAll('Rs', '').trim()}'
+                              ' + ₹ ${plan.adminFee?.replaceAll('₹', '').replaceAll('Rs.', '').replaceAll('Rs', '').trim() ?? '0'} (Admin Fee)',
                               style: TextStyle(
-                                fontSize: 22,
-                                fontWeight: FontWeight.w900,
+                                fontSize: 18.0,
+                                fontWeight: FontWeight.bold,
                                 color: planColor,
-                                letterSpacing: -1,
+                                letterSpacing: -0.5,
                               ),
                             ),
                           ],
@@ -280,9 +258,9 @@ class MembershipBottomSheet {
                         const Text(
                           'BENEFITS',
                           style: TextStyle(
-                            fontSize: 11,
-                            fontWeight: FontWeight.w900,
-                            color: Colors.white54,
+                            fontSize: 12.0,
+                            fontWeight: FontWeight.bold,
+                            color: AppColors.greyText,
                             letterSpacing: 2,
                           ),
                         ),
@@ -299,9 +277,9 @@ class MembershipBottomSheet {
                                   Expanded(
                                     child: Text(
                                       plan.features[i],
-                                      style: TextStyle(
-                                        fontSize: 12,
-                                        color: Colors.white.withOpacity(0.7),
+                                      style: const TextStyle(
+                                        fontSize: 12.0,
+                                        color: AppColors.bodyText,
                                         fontWeight: FontWeight.w500,
                                       ),
                                     ),
@@ -320,11 +298,11 @@ class MembershipBottomSheet {
                   padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 12),
                   child: SizedBox(
                     width: double.infinity,
-                    height: 44,
+                    height: 48,
                     child: ElevatedButton(
                       style: ElevatedButton.styleFrom(
                         backgroundColor: planColor,
-                        foregroundColor: Colors.black,
+                        foregroundColor: AppColors.primaryBlack,
                         padding: EdgeInsets.zero,
                         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
                         elevation: 10,
@@ -338,7 +316,7 @@ class MembershipBottomSheet {
                         (Get.isRegistered<AccountController>() && Get.find<AccountController>().userData.value?.membership != null)
                             ? 'UPDATE NOW'
                             : 'BUY NOW',
-                        style: const TextStyle(fontWeight: FontWeight.w900, letterSpacing: 0.5, fontSize: 13),
+                        style: const TextStyle(fontWeight: FontWeight.bold, letterSpacing: 0.5, fontSize: 13.0),
                       ),
                     ),
                   ),

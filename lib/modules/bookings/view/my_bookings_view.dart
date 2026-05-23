@@ -13,11 +13,11 @@ class MyBookingsView extends StatelessWidget {
     final accountController = Get.find<AccountController>();
     
     return Scaffold(
-      backgroundColor: Colors.grey[50],
+      backgroundColor: AppColors.lightGrey,
       appBar: AppBar(
         title: const Text(
           'My Booking History',
-          style: TextStyle(fontWeight: FontWeight.w900, color: AppColors.primaryBlack),
+          style: TextStyle(fontWeight: FontWeight.normal, color: AppColors.primaryBlack),
         ),
         backgroundColor: Colors.white,
         elevation: 0,
@@ -34,11 +34,11 @@ class MyBookingsView extends StatelessWidget {
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                Icon(Icons.event_busy_rounded, size: 80, color: Colors.grey[300]),
+                Icon(Icons.event_busy_rounded, size: 80, color: AppColors.borderGrey),
                 const SizedBox(height: 16),
                 Text(
                   'No bookings found',
-                  style: TextStyle(color: Colors.grey[600], fontSize: 16, fontWeight: FontWeight.bold),
+                  style: TextStyle(color: AppColors.primaryBlack, fontSize: 9.0, fontWeight: FontWeight.normal),
                 ),
               ],
             ),
@@ -71,7 +71,7 @@ class _BookingCard extends StatelessWidget {
         borderRadius: BorderRadius.circular(16),
         boxShadow: [
           BoxShadow(
-            color: Colors.black.withOpacity(0.04),
+            color: AppColors.primaryBlack.withOpacity(0.04),
             blurRadius: 10,
             offset: const Offset(0, 4),
           ),
@@ -99,15 +99,15 @@ class _BookingCard extends StatelessWidget {
                     Text(
                       booking.place ?? 'Unknown Destination',
                       style: const TextStyle(
-                        fontSize: 16,
-                        fontWeight: FontWeight.w900,
+                        fontSize: 9.0,
+                        fontWeight: FontWeight.normal,
                         color: AppColors.primaryBlack,
                       ),
                     ),
                     const SizedBox(height: 4),
                     Text(
                       'Request ID: #${booking.id?.substring(booking.id!.length - 6).toUpperCase() ?? "N/A"}',
-                      style: TextStyle(fontSize: 12, color: Colors.grey[500], fontWeight: FontWeight.bold),
+                      style: TextStyle(fontSize: 8.0, color: AppColors.greyText, fontWeight: FontWeight.normal),
                     ),
                   ],
                 ),
@@ -124,7 +124,7 @@ class _BookingCard extends StatelessWidget {
                   booking.requestedAt != null 
                     ? DateFormat('dd MMM yyyy').format(DateTime.parse(booking.requestedAt!))
                     : 'Date Unknown',
-                  style: TextStyle(fontSize: 11, color: Colors.grey[500]),
+                  style: TextStyle(fontSize: 8.0, color: AppColors.greyText),
                 ),
               ],
             ),
@@ -161,11 +161,11 @@ class _BookingCard extends StatelessWidget {
       padding: const EdgeInsets.symmetric(vertical: 8.0),
       child: Row(
         children: [
-          Icon(icon, size: 16, color: Colors.grey[400]),
+          Icon(icon, size: 16, color: AppColors.greyText),
           const SizedBox(width: 12),
-          Text(label, style: TextStyle(color: Colors.grey[600], fontSize: 13, fontWeight: FontWeight.w500)),
+          Text(label, style: TextStyle(color: AppColors.primaryBlack, fontSize: 8.0, fontWeight: FontWeight.normal)),
           const Spacer(),
-          Text(value, style: const TextStyle(color: AppColors.primaryBlack, fontSize: 13, fontWeight: FontWeight.bold)),
+          Text(value, style: const TextStyle(color: AppColors.primaryBlack, fontSize: 8.0, fontWeight: FontWeight.normal)),
         ],
       ),
     );
@@ -184,15 +184,15 @@ class _StatusBadge extends StatelessWidget {
     switch (status.toLowerCase()) {
       case 'booked':
       case 'confirmed':
-        color = Colors.green;
+        color = AppColors.primaryYellow;
         label = 'CONFIRMED';
         break;
       case 'cancelled':
-        color = Colors.red;
+        color = AppColors.brownAccent;
         label = 'CANCELLED';
         break;
       default:
-        color = Colors.orange;
+        color = AppColors.primaryYellow;
         label = 'PENDING';
     }
 
@@ -205,7 +205,7 @@ class _StatusBadge extends StatelessWidget {
       ),
       child: Text(
         label,
-        style: TextStyle(color: color, fontSize: 10, fontWeight: FontWeight.w900, letterSpacing: 0.5),
+        style: TextStyle(color: color, fontSize: 8.0, fontWeight: FontWeight.normal, letterSpacing: 0.5),
       ),
     );
   }

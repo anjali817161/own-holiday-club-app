@@ -14,8 +14,8 @@ class PrivacyPolicyView extends StatelessWidget {
         title: Text(
           'Privacy Policy',
           style: GoogleFonts.montserrat(
-            fontWeight: FontWeight.w600,
-            fontSize: 18,
+            fontWeight: FontWeight.normal,
+            fontSize: 10.0,
             color: AppColors.primaryBlack,
           ),
         ),
@@ -38,13 +38,13 @@ class PrivacyPolicyView extends StatelessWidget {
               decoration: BoxDecoration(
                 color: AppColors.lightGrey.withOpacity(0.5),
                 borderRadius: BorderRadius.circular(12),
-                border: Border.all(color: Colors.grey.shade200),
+                border: Border.all(color: AppColors.borderGrey),
               ),
               child: Text(
                 'By visiting website www.ownholidayclub.com and our mobile application you are accepting the terms stated hereunder relating to privacy. It explains how RHSPL handles personal information and complies with the requirements of the privacy act. If you have further questions relating to this policy please contact our member experience management team by e-mail at membership@ownholidayclub.com.',
                 style: GoogleFonts.montserrat(
-                  fontSize: 13,
-                  color: Colors.grey[800],
+                  fontSize: 8.0,
+                  color: AppColors.primaryBlack,
                   height: 1.6,
                 ),
               ),
@@ -79,8 +79,8 @@ class PrivacyPolicyView extends StatelessWidget {
                         child: Text(
                           'Disclaimer for using data',
                           style: GoogleFonts.montserrat(
-                            fontSize: 14,
-                            fontWeight: FontWeight.bold,
+                            fontSize: 8.0,
+                            fontWeight: FontWeight.normal,
                             color: Colors.amber.shade900,
                           ),
                         ),
@@ -91,7 +91,7 @@ class PrivacyPolicyView extends StatelessWidget {
                   Text(
                     'I/We hereby agree and authorize Rigel Hospitality Services Pvt.Ltd. and all of its divisions, affiliates, subsidiaries, related parties and other group companies (collectively the “RHSPL Group”) to access my/our basic data / contact details provided herewith, i.e. name, address, telephone number, e-mail address, birth date and / or anniversary date. I/We hereby consent to, agree and acknowledge that any of the RHSPL Group may call/ email/ SMS me/us. I/We consent to being assigned a unique identity within the RHSPL Group. If I/We wish to stop receiving communications, I/We will write to membership@ownholidayclub.com with “OPT OUT CCD” as Subject.',
                     style: GoogleFonts.montserrat(
-                      fontSize: 13,
+                      fontSize: 8.0,
                       color: Colors.amber.shade900,
                       height: 1.5,
                     ),
@@ -123,8 +123,8 @@ class PrivacyPolicyView extends StatelessWidget {
                 'Future changes: From time to time, our policies will be reviewed and may be revised. Changes to RHSPL\'s Privacy Policy will be made by posting an updated version of the policy on our website.',
                 textAlign: TextAlign.center,
                 style: GoogleFonts.montserrat(
-                  fontSize: 11,
-                  color: Colors.grey,
+                  fontSize: 8.0,
+                  color: AppColors.greyText,
                   fontStyle: FontStyle.italic,
                 ),
               ),
@@ -145,8 +145,8 @@ class PrivacyPolicyView extends StatelessWidget {
           Text(
             title,
             style: GoogleFonts.montserrat(
-              fontSize: 16,
-              fontWeight: FontWeight.w600,
+              fontSize: 9.0,
+              fontWeight: FontWeight.normal,
               color: AppColors.primaryBlack,
             ),
           ),
@@ -154,8 +154,8 @@ class PrivacyPolicyView extends StatelessWidget {
           Text(
             content,
             style: GoogleFonts.montserrat(
-              fontSize: 13,
-              color: Colors.grey[700],
+              fontSize: 8.0,
+              color: AppColors.primaryBlack,
               height: 1.6,
             ),
           ),

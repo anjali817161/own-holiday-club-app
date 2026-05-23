@@ -63,7 +63,7 @@ class _EnquiryFormSheetState extends State<EnquiryFormSheet> {
         Get.snackbar(
           "Success", 
           "Your enquiry has been submitted successfully. Our team will contact you soon.",
-          backgroundColor: Colors.green,
+          backgroundColor: AppColors.primaryYellow,
           colorText: Colors.white,
           snackPosition: SnackPosition.BOTTOM,
         );
@@ -71,7 +71,7 @@ class _EnquiryFormSheetState extends State<EnquiryFormSheet> {
         Get.snackbar(
           "Error", 
           "Failed to submit enquiry. Please try again later.",
-          backgroundColor: Colors.red,
+          backgroundColor: AppColors.brownAccent,
           colorText: Colors.white,
           snackPosition: SnackPosition.BOTTOM,
         );
@@ -80,7 +80,7 @@ class _EnquiryFormSheetState extends State<EnquiryFormSheet> {
       Get.snackbar(
         "Error", 
         "Something went wrong. Please check your connection.",
-        backgroundColor: Colors.red,
+        backgroundColor: AppColors.brownAccent,
         colorText: Colors.white,
         snackPosition: SnackPosition.BOTTOM,
       );
@@ -111,7 +111,7 @@ class _EnquiryFormSheetState extends State<EnquiryFormSheet> {
                   width: 50,
                   height: 5,
                   decoration: BoxDecoration(
-                    color: Colors.grey[300],
+                    color: AppColors.borderGrey,
                     borderRadius: BorderRadius.circular(10),
                   ),
                 ),
@@ -120,8 +120,8 @@ class _EnquiryFormSheetState extends State<EnquiryFormSheet> {
               const Text(
                 "Request an Itinerary",
                 style: TextStyle(
-                  fontSize: 24,
-                  fontWeight: FontWeight.w900,
+                  fontSize: 13.0,
+                  fontWeight: FontWeight.normal,
                   color: AppColors.primaryBlack,
                 ),
               ),
@@ -129,8 +129,8 @@ class _EnquiryFormSheetState extends State<EnquiryFormSheet> {
               Text(
                 "Complete the details below to begin planning your journey to ${widget.destination['name'] ?? widget.destination['title']}.",
                 style: TextStyle(
-                  fontSize: 14,
-                  color: Colors.grey[600],
+                  fontSize: 12.0,
+                  color: AppColors.primaryBlack,
                 ),
               ),
               const SizedBox(height: 24),
@@ -252,7 +252,7 @@ class _EnquiryFormSheetState extends State<EnquiryFormSheet> {
                         children: [
                           Text(
                             "SUBMIT INQUIRY",
-                            style: TextStyle(fontWeight: FontWeight.w900, letterSpacing: 1),
+                            style: TextStyle(fontWeight: FontWeight.normal, letterSpacing: 1),
                           ),
                           SizedBox(width: 8),
                           Icon(Icons.send_rounded, size: 18),
@@ -265,9 +265,9 @@ class _EnquiryFormSheetState extends State<EnquiryFormSheet> {
                 child: Text(
                   "YOUR INFORMATION IS STRICTLY CONFIDENTIAL.",
                   style: TextStyle(
-                    fontSize: 10,
-                    color: Colors.grey,
-                    fontWeight: FontWeight.bold,
+                    fontSize: 12.0,
+                    color: AppColors.greyText,
+                    fontWeight: FontWeight.normal,
                     letterSpacing: 0.5,
                   ),
                 ),
@@ -295,17 +295,17 @@ class _EnquiryFormSheetState extends State<EnquiryFormSheet> {
       validator: validator,
       decoration: InputDecoration(
         hintText: label,
-        hintStyle: TextStyle(color: Colors.grey[400], fontSize: 14),
-        prefixIcon: icon != null ? Icon(icon, size: 20, color: Colors.grey[400]) : null,
+        hintStyle: TextStyle(color: AppColors.greyText, fontSize: 12.0),
+        prefixIcon: icon != null ? Icon(icon, size: 20, color: AppColors.greyText) : null,
         filled: true,
-        fillColor: Colors.grey[50],
+        fillColor: AppColors.lightGrey,
         border: OutlineInputBorder(
           borderRadius: BorderRadius.circular(12),
-          borderSide: BorderSide(color: Colors.grey[200]!),
+          borderSide: BorderSide(color: AppColors.borderGrey!),
         ),
         enabledBorder: OutlineInputBorder(
           borderRadius: BorderRadius.circular(12),
-          borderSide: BorderSide(color: Colors.grey[200]!),
+          borderSide: BorderSide(color: AppColors.borderGrey!),
         ),
         focusedBorder: OutlineInputBorder(
           borderRadius: BorderRadius.circular(12),
@@ -321,20 +321,20 @@ class _EnquiryFormSheetState extends State<EnquiryFormSheet> {
       child: Container(
         padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 14),
         decoration: BoxDecoration(
-          color: Colors.grey[50],
+          color: AppColors.lightGrey,
           borderRadius: BorderRadius.circular(12),
-          border: Border.all(color: Colors.grey[200]!),
+          border: Border.all(color: AppColors.borderGrey!),
         ),
         child: Row(
           children: [
-            Icon(icon, size: 20, color: Colors.grey[400]),
+            Icon(icon, size: 20, color: AppColors.greyText),
             const SizedBox(width: 10),
             Expanded(
               child: Text(
                 label,
                 style: TextStyle(
-                  color: label.contains('/') ? Colors.black : Colors.grey[400], 
-                  fontSize: 13, // Slightly smaller
+                  color: label.contains('/') ? AppColors.primaryBlack : AppColors.greyText, 
+                  fontSize: 12.0, // Slightly smaller
                 ),
                 overflow: TextOverflow.ellipsis,
               ),
@@ -349,29 +349,29 @@ class _EnquiryFormSheetState extends State<EnquiryFormSheet> {
     return Container(
       padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 10),
       decoration: BoxDecoration(
-        color: Colors.grey[50],
+        color: AppColors.lightGrey,
         borderRadius: BorderRadius.circular(12),
-        border: Border.all(color: Colors.grey[200]!),
+        border: Border.all(color: AppColors.borderGrey!),
       ),
       child: Row(
         children: [
-          Icon(icon, size: 18, color: Colors.grey[400]),
+          Icon(icon, size: 18, color: AppColors.greyText),
           const SizedBox(width: 6),
           Expanded(
             child: Text(
               label, 
-              style: TextStyle(color: Colors.grey[400], fontSize: 12),
+              style: TextStyle(color: AppColors.greyText, fontSize: 12.0),
               overflow: TextOverflow.ellipsis,
             ),
           ),
           const SizedBox(width: 4),
           GestureDetector(
             onTap: () { if (value > 0) onChanged(value - 1); },
-            child: Icon(Icons.remove_circle_outline, size: 18, color: Colors.grey[400]),
+            child: Icon(Icons.remove_circle_outline, size: 18, color: AppColors.greyText),
           ),
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 4),
-            child: Text(value.toString(), style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 13)),
+            child: Text(value.toString(), style: const TextStyle(fontWeight: FontWeight.normal, fontSize: 12.0)),
           ),
           GestureDetector(
             onTap: () { onChanged(value + 1); },

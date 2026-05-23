@@ -40,22 +40,21 @@ class OnboardingView extends GetView<OnboardingController> {
                     child: Container(
                       padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
                       decoration: BoxDecoration(
-                        color: Colors.black.withOpacity(0.3),
+                        color: AppColors.primaryBlack.withOpacity(0.3),
                         borderRadius: BorderRadius.circular(20),
-                      ),
-                      child: const Text(
+                      ),                      child: const Text(
                         'Skip',
                         style: TextStyle(
                           color: Colors.white,
-                          fontWeight: FontWeight.w700,
-                          fontSize: 13,
+                          fontWeight: FontWeight.w600,
+                          fontSize: 14.0,
                         ),
                       ),
                     ),
                   )
                 : const SizedBox.shrink()),
           ),
-
+ 
           // Content Card — bottom ~40%
           Align(
             alignment: Alignment.bottomCenter,
@@ -63,14 +62,14 @@ class OnboardingView extends GetView<OnboardingController> {
               height: MediaQuery.of(context).size.height * 0.4,
               width: double.infinity,
               padding: const EdgeInsets.fromLTRB(30, 40, 30, 40),
-              decoration: const BoxDecoration(
+              decoration: BoxDecoration(
                 color: Colors.white,
-                borderRadius: BorderRadius.vertical(top: Radius.circular(45)),
+                borderRadius: const BorderRadius.vertical(top: Radius.circular(45)),
                 boxShadow: [
                   BoxShadow(
-                    color: Colors.black12,
+                    color: AppColors.primaryBlack.withOpacity(0.15),
                     blurRadius: 20,
-                    offset: Offset(0, -10),
+                    offset: const Offset(0, -10),
                   ),
                 ],
               ),
@@ -89,8 +88,8 @@ class OnboardingView extends GetView<OnboardingController> {
                             child: Text(
                               item['title']!,
                               style: const TextStyle(
-                                fontSize: 32,
-                                fontWeight: FontWeight.w900,
+                                fontSize: 24.0,
+                                fontWeight: FontWeight.bold,
                                 color: AppColors.primaryBlack,
                                 letterSpacing: -0.5,
                               ),
@@ -104,9 +103,9 @@ class OnboardingView extends GetView<OnboardingController> {
                             child: Text(
                               item['description']!,
                               style: TextStyle(
-                                fontSize: 16,
-                                color: AppColors.greyText.withOpacity(0.8),
-                                fontWeight: FontWeight.w500,
+                                fontSize: 15.0,
+                                color: AppColors.greyText.withOpacity(0.9),
+                                fontWeight: FontWeight.normal,
                                 height: 1.5,
                               ),
                             ),
@@ -156,7 +155,7 @@ class OnboardingView extends GetView<OnboardingController> {
                             child: isLast 
                               ? const Text(
                                   'Get Started',
-                                  style: TextStyle(fontWeight: FontWeight.w900, fontSize: 16),
+                                  style: TextStyle(fontWeight: FontWeight.bold, fontSize: 15.0),
                                 )
                               : const Icon(Icons.arrow_forward_rounded, size: 28),
                           ),

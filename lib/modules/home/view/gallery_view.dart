@@ -103,12 +103,12 @@ class GalleryView extends GetView<HomeController> {
         title: Text(
           'LUXURY GALLERY',
           style: GoogleFonts.outfit(
-            fontWeight: FontWeight.w900,
-            fontSize: 16,
+            fontWeight: FontWeight.normal,
+            fontSize: 9.0,
             color: AppColors.primaryWhite,
             letterSpacing: 1.5,
             shadows: [
-              const Shadow(color: Colors.black45, blurRadius: 10, offset: Offset(0, 2)),
+              Shadow(color: AppColors.primaryBlack.withOpacity(0.5), blurRadius: 10, offset: const Offset(0, 2)),
             ],
           ),
         ),
@@ -125,8 +125,8 @@ class GalleryView extends GetView<HomeController> {
                   begin: Alignment.topCenter,
                   end: Alignment.bottomCenter,
                   colors: [
-                    Colors.black.withOpacity(0.2),
-                    Colors.black.withOpacity(0.5),
+                    AppColors.primaryBlack.withOpacity(0.2),
+                    AppColors.primaryBlack.withOpacity(0.5),
                   ],
                 ),
               ),
@@ -152,8 +152,8 @@ class GalleryView extends GetView<HomeController> {
         Text(
           title.toUpperCase(),
           style: GoogleFonts.outfit(
-            fontSize: 16,
-            fontWeight: FontWeight.w900,
+            fontSize: 9.0,
+            fontWeight: FontWeight.normal,
             color: AppColors.primaryBlack,
             letterSpacing: 1,
           ),
@@ -172,7 +172,7 @@ class GalleryView extends GetView<HomeController> {
           borderRadius: BorderRadius.circular(16),
           boxShadow: [
             BoxShadow(
-              color: Colors.black.withOpacity(0.1),
+              color: AppColors.primaryBlack.withOpacity(0.1),
               blurRadius: 8,
               offset: const Offset(0, 4),
             ),
@@ -186,7 +186,7 @@ class GalleryView extends GetView<HomeController> {
             placeholder: (context, url) => const Skeleton(),
             errorWidget: (context, url, error) => Container(
               color: AppColors.lightGrey,
-              child: const Icon(Icons.broken_image_outlined, color: Colors.grey),
+              child: const Icon(Icons.broken_image_outlined, color: AppColors.greyText),
             ),
           ),
         ),

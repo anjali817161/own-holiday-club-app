@@ -84,65 +84,57 @@ class _ServiceDetailsViewState extends State<ServiceDetailsView> {
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      FadeInUp(
-                        child: Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          children: [
-                            Expanded(
-                              child: Column(
-                                crossAxisAlignment: CrossAxisAlignment.start,
-                                children: [
-                                  Text(
-                                    service['title'] ?? 'Service Detail',
-                                    style: GoogleFonts.montserrat(
-                                      fontSize: 24,
-                                      fontWeight: FontWeight.w600,
-                                      color: AppColors.primaryBlack,
-                                    ),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          Expanded(
+                            child: Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                Text(
+                                  service['title'] ?? 'Service Detail',
+                                  style: GoogleFonts.montserrat(
+                                    fontSize: 20.0,
+                                    fontWeight: FontWeight.bold,
+                                    color: AppColors.primaryBlack,
                                   ),
-                                  const SizedBox(height: 4),
-                                  Row(
-                                    children: [
-                                      const Icon(Icons.star_rounded, size: 14, color: AppColors.primaryYellow),
-                                      const SizedBox(width: 4),
-                                      Text(
-                                        'Premium Offering',
-                                        style: GoogleFonts.montserrat(
-                                          fontSize: 12,
-                                          color: AppColors.greyText,
-                                          fontWeight: FontWeight.w600,
-                                        ),
+                                ),
+                                const SizedBox(height: 6),
+                                Row(
+                                  children: [
+                                    const Icon(Icons.star_rounded, size: 16, color: AppColors.primaryYellow),
+                                    const SizedBox(width: 4),
+                                    Text(
+                                      'Premium Offering',
+                                      style: GoogleFonts.montserrat(
+                                        fontSize: 13.0,
+                                        color: AppColors.greyText,
+                                        fontWeight: FontWeight.normal,
                                       ),
-                                    ],
-                                  ),
-                                ],
-                              ),
+                                    ),
+                                  ],
+                                ),
+                              ],
                             ),
-                          ],
-                        ),
+                          ),
+                        ],
                       ),
                       const SizedBox(height: 28),
-                      FadeInUp(
-                        delay: const Duration(milliseconds: 100),
-                        child: Text(
-                          'Service Overview',
-                          style: GoogleFonts.montserrat(
-                            fontSize: 16,
-                            fontWeight: FontWeight.w600,
-                            color: AppColors.primaryBlack,
-                          ),
+                      Text(
+                        'Service Overview',
+                        style: GoogleFonts.montserrat(
+                          fontSize: 16.0,
+                          fontWeight: FontWeight.bold,
+                          color: AppColors.primaryBlack,
                         ),
                       ),
-                      const SizedBox(height: 10),
-                      FadeInUp(
-                        delay: const Duration(milliseconds: 200),
-                        child: Text(
-                          _stripHtml(service['fullDescription'] ?? service['description'] ?? 'Discover our premium service offerings designed for your ultimate comfort and luxury.'),
-                          style: GoogleFonts.montserrat(
-                            fontSize: 13,
-                            color: Colors.grey[700],
-                            height: 1.5,
-                          ),
+                      const SizedBox(height: 12),
+                      Text(
+                        _stripHtml(service['fullDescription'] ?? service['description'] ?? 'Discover our premium service offerings designed for your ultimate comfort and luxury.'),
+                        style: GoogleFonts.montserrat(
+                          fontSize: 13.0,
+                          color: AppColors.primaryBlack,
+                          height: 1.6,
                         ),
                       ),
                       const SizedBox(height: 32),
@@ -176,48 +168,41 @@ class _ServiceDetailsViewState extends State<ServiceDetailsView> {
 
   Widget _buildHeader(List<String> images) {
     return SliverToBoxAdapter(
-      child: Stack(
-        children: [
-          ClipPath(
-            clipper: WaveClipper(),
-            child: Container(
-              height: 420,
-              width: double.infinity,
-              child: Stack(
-                children: [
-                  PageView.builder(
-                    controller: _pageController,
-                    onPageChanged: (v) => setState(() => _currentPage = v),
-                    itemCount: images.length,
-                    itemBuilder: (context, i) => _buildImage(images[i]),
-                  ),
-                  if (images.length > 1)
-                  Positioned(
-                    bottom: 80,
-                    left: 0,
-                    right: 0,
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: List.generate(
-                        images.length,
-                        (index) => AnimatedContainer(
-                          duration: const Duration(milliseconds: 300),
-                          margin: const EdgeInsets.symmetric(horizontal: 4),
-                          height: 8,
-                          width: _currentPage == index ? 24 : 8,
-                          decoration: BoxDecoration(
-                            color: _currentPage == index ? AppColors.primaryYellow : Colors.white.withOpacity(0.5),
-                            borderRadius: BorderRadius.circular(4),
-                          ),
-                        ),
-                      ),
+      child: Container(
+        height: 350,
+        width: double.infinity,
+        child: Stack(
+          children: [
+            PageView.builder(
+              controller: _pageController,
+              onPageChanged: (v) => setState(() => _currentPage = v),
+              itemCount: images.length,
+              itemBuilder: (context, i) => _buildImage(images[i]),
+            ),
+            if (images.length > 1)
+            Positioned(
+              bottom: 20,
+              left: 0,
+              right: 0,
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: List.generate(
+                  images.length,
+                  (index) => AnimatedContainer(
+                    duration: const Duration(milliseconds: 300),
+                    margin: const EdgeInsets.symmetric(horizontal: 4),
+                    height: 8,
+                    width: _currentPage == index ? 24 : 8,
+                    decoration: BoxDecoration(
+                      color: _currentPage == index ? AppColors.primaryYellow : Colors.white.withOpacity(0.5),
+                      borderRadius: BorderRadius.circular(4),
                     ),
                   ),
-                ],
+                ),
               ),
             ),
-          ),
-        ],
+          ],
+        ),
       ),
     );
   }
@@ -244,38 +229,40 @@ class _ServiceDetailsViewState extends State<ServiceDetailsView> {
       bottom: 20,
       left: 20,
       right: 20,
-      child: FadeInUp(
-        child: Container(
-          decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(20),
-            boxShadow: [
-              BoxShadow(
-                color: Colors.black.withOpacity(0.1),
-                blurRadius: 20,
-                offset: const Offset(0, 10),
-              ),
-            ],
+      child: Container(
+        decoration: BoxDecoration(
+          borderRadius: BorderRadius.circular(20),
+          boxShadow: [
+            BoxShadow(
+              color: AppColors.primaryBlack.withOpacity(0.15),
+              blurRadius: 24,
+              offset: const Offset(0, 10),
+            ),
+          ],
+        ),
+        child: ElevatedButton(
+          onPressed: () => _showServiceInquiryForm(context),
+          style: ElevatedButton.styleFrom(
+            backgroundColor: AppColors.primaryYellow,
+            foregroundColor: AppColors.primaryBlack,
+            padding: const EdgeInsets.symmetric(vertical: 18),
+            shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
+            elevation: 0,
           ),
-          child: ElevatedButton(
-            onPressed: () => _showServiceInquiryForm(context),
-            style: ElevatedButton.styleFrom(
-              backgroundColor: AppColors.primaryBlack,
-              foregroundColor: Colors.white,
-              padding: const EdgeInsets.symmetric(vertical: 18),
-              shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
-              elevation: 0,
-            ),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                Text(
-                  'ENQUIRE NOW',
-                  style: GoogleFonts.montserrat(fontWeight: FontWeight.w600, fontSize: 14, letterSpacing: 1),
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Text(
+                'ENQUIRE NOW',
+                style: GoogleFonts.montserrat(
+                  fontWeight: FontWeight.bold,
+                  fontSize: 14.0,
+                  letterSpacing: 1.2,
                 ),
-                const SizedBox(width: 10),
-                const Icon(Icons.arrow_forward_ios_rounded, size: 14),
-              ],
-            ),
+              ),
+              const SizedBox(width: 10),
+              const Icon(Icons.arrow_forward_ios_rounded, size: 16),
+            ],
           ),
         ),
       ),
@@ -370,20 +357,20 @@ class _ServiceInquiryFormSheetState extends State<ServiceInquiryFormSheet> {
               Center(
                 child: Container(
                   width: 40, height: 4,
-                  decoration: BoxDecoration(color: Colors.grey[300], borderRadius: BorderRadius.circular(2)),
+                  decoration: BoxDecoration(color: AppColors.borderGrey, borderRadius: BorderRadius.circular(2)),
                 ),
               ),
               const SizedBox(height: 24),
               Text(
                 'Service Inquiry',
-                style: GoogleFonts.montserrat(fontSize: 20, fontWeight: FontWeight.w600, color: AppColors.primaryBlack),
+                style: GoogleFonts.montserrat(fontSize: 16.0, fontWeight: FontWeight.bold, color: AppColors.primaryBlack),
               ),
-              const SizedBox(height: 4),
+              const SizedBox(height: 6),
               Text(
                 'Complete the details below to inquire about ${widget.service['title']}.',
-                style: GoogleFonts.montserrat(fontSize: 12, color: AppColors.greyText),
+                style: GoogleFonts.montserrat(fontSize: 13.0, color: AppColors.greyText),
               ),
-              const SizedBox(height: 28),
+              const SizedBox(height: 24),
               Row(
                 children: [
                   Expanded(child: _buildField(_nameCtrl, 'Full Name', Icons.person_outline)),
@@ -409,17 +396,17 @@ class _ServiceInquiryFormSheetState extends State<ServiceInquiryFormSheet> {
                 child: ElevatedButton(
                   onPressed: _isSubmitting ? null : _submit,
                   style: ElevatedButton.styleFrom(
-                    backgroundColor: AppColors.primaryBlack,
-                    foregroundColor: Colors.white,
+                    backgroundColor: AppColors.primaryYellow,
+                    foregroundColor: AppColors.primaryBlack,
                     padding: const EdgeInsets.symmetric(vertical: 18),
                     shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
                   ),
                   child: _isSubmitting 
-                    ? const SizedBox(height: 20, width: 20, child: CircularProgressIndicator(strokeWidth: 2, color: Colors.white))
+                    ? const SizedBox(height: 20, width: 20, child: CircularProgressIndicator(strokeWidth: 2, color: AppColors.primaryBlack))
                     : Row(
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
-                          Text('SUBMIT SERVICE INQUIRY', style: GoogleFonts.montserrat(fontWeight: FontWeight.w600, fontSize: 15)),
+                          Text('SUBMIT SERVICE INQUIRY', style: GoogleFonts.montserrat(fontWeight: FontWeight.bold, fontSize: 14.0)),
                           const SizedBox(width: 8),
                           const Icon(Icons.send_rounded, size: 16),
                         ],
@@ -430,7 +417,7 @@ class _ServiceInquiryFormSheetState extends State<ServiceInquiryFormSheet> {
               Center(
                 child: Text(
                   'YOUR INFORMATION IS STRICTLY CONFIDENTIAL.',
-                  style: GoogleFonts.montserrat(fontSize: 10, color: Colors.grey, fontWeight: FontWeight.bold, letterSpacing: 1),
+                  style: GoogleFonts.montserrat(fontSize: 11.0, color: AppColors.greyText, fontWeight: FontWeight.normal, letterSpacing: 1),
                 ),
               ),
             ],
@@ -445,11 +432,11 @@ class _ServiceInquiryFormSheetState extends State<ServiceInquiryFormSheet> {
       controller: ctrl,
       keyboardType: keyboard,
       maxLines: maxLines,
-      style: GoogleFonts.montserrat(fontSize: 12, fontWeight: FontWeight.w600),
+      style: GoogleFonts.montserrat(fontSize: 13.0, fontWeight: FontWeight.normal),
       decoration: InputDecoration(
         hintText: isOptional ? '$hint (Optional)' : hint,
-        hintStyle: GoogleFonts.montserrat(fontSize: 12, color: Colors.grey),
-        prefixIcon: Icon(icon, size: 16, color: Colors.grey),
+        hintStyle: GoogleFonts.montserrat(fontSize: 13.0, color: AppColors.greyText),
+        prefixIcon: Icon(icon, size: 18, color: AppColors.greyText),
         filled: true,
         fillColor: const Color(0xFFF8F9FB),
         border: OutlineInputBorder(borderRadius: BorderRadius.circular(12), borderSide: BorderSide.none),
@@ -479,11 +466,14 @@ class _ServiceInquiryFormSheetState extends State<ServiceInquiryFormSheet> {
         decoration: BoxDecoration(color: const Color(0xFFF8F9FB), borderRadius: BorderRadius.circular(12)),
         child: Row(
           children: [
-            const Icon(Icons.calendar_today_outlined, size: 18, color: Colors.grey),
+            const Icon(Icons.calendar_today_outlined, size: 18, color: AppColors.greyText),
             const SizedBox(width: 12),
-            Text(
-              date == null ? label : DateFormat('MM/dd/yyyy').format(date),
-              style: GoogleFonts.montserrat(fontSize: 13, color: date == null ? Colors.grey : AppColors.primaryBlack, fontWeight: FontWeight.w600),
+            Expanded(
+              child: Text(
+                date == null ? label : DateFormat('MM/dd/yyyy').format(date),
+                style: GoogleFonts.montserrat(fontSize: 13.0, color: date == null ? AppColors.greyText : AppColors.primaryBlack, fontWeight: FontWeight.normal),
+                overflow: TextOverflow.ellipsis,
+              ),
             ),
           ],
         ),
@@ -498,8 +488,8 @@ class _ServiceInquiryFormSheetState extends State<ServiceInquiryFormSheet> {
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
-          Icon(Icons.person_outline, size: 18, color: Colors.grey),
-          Text(val.toString(), style: GoogleFonts.montserrat(fontSize: 14, fontWeight: FontWeight.w900)),
+          Icon(Icons.person_outline, size: 18, color: AppColors.greyText),
+          Text(val.toString(), style: GoogleFonts.montserrat(fontSize: 13.0, fontWeight: FontWeight.normal)),
           Row(
             children: [
               InkWell(onTap: () => val > 0 ? onChange(val - 1) : null, child: const Icon(Icons.remove, size: 16)),
@@ -534,12 +524,12 @@ class _ServiceInquiryFormSheetState extends State<ServiceInquiryFormSheet> {
       final success = await controller.submitServiceEnquiry(payload);
       if (success) {
         Get.back();
-        Get.snackbar('Success', 'Service inquiry submitted successfully!', backgroundColor: Colors.green, colorText: Colors.white);
+        Get.snackbar('Success', 'Service inquiry submitted successfully!', backgroundColor: AppColors.primaryYellow, colorText: Colors.white);
       } else {
-        Get.snackbar('Error', 'Submission failed. Please try again.', backgroundColor: Colors.red, colorText: Colors.white);
+        Get.snackbar('Error', 'Submission failed. Please try again.', backgroundColor: AppColors.brownAccent, colorText: Colors.white);
       }
     } catch (e) {
-      Get.snackbar('Error', 'Something went wrong', backgroundColor: Colors.red, colorText: Colors.white);
+      Get.snackbar('Error', 'Something went wrong', backgroundColor: AppColors.brownAccent, colorText: Colors.white);
     } finally {
       setState(() => _isSubmitting = false);
     }

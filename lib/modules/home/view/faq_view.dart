@@ -16,7 +16,7 @@ class FaqView extends GetView<HomeController> {
       appBar: AppBar(
         title: Text(
           'FAQ',
-          style: GoogleFonts.montserrat(fontWeight: FontWeight.w600, fontSize: 20, color: AppColors.primaryBlack),
+          style: GoogleFonts.montserrat(fontWeight: FontWeight.normal, fontSize: 11.0, color: AppColors.primaryBlack),
         ),
         centerTitle: true,
         backgroundColor: Colors.white,
@@ -56,7 +56,7 @@ class FaqView extends GetView<HomeController> {
                 decoration: BoxDecoration(
                   color: Colors.white,
                   borderRadius: BorderRadius.circular(16),
-                  border: Border.all(color: Colors.grey.shade200, width: 1),
+                  border: Border.all(color: AppColors.borderGrey, width: 1),
                   boxShadow: const [
                     BoxShadow(
                       color: Color.fromRGBO(50, 50, 93, 0.1),
@@ -78,13 +78,13 @@ class FaqView extends GetView<HomeController> {
                     title: Text(
                       faq['question'] ?? '',
                       style: GoogleFonts.montserrat(
-                        fontWeight: FontWeight.w600,
-                        fontSize: 15,
+                        fontWeight: FontWeight.normal,
+                        fontSize: 9.0,
                         color: AppColors.primaryBlack,
                       ),
                     ),
                     iconColor: AppColors.primaryYellow,
-                    collapsedIconColor: Colors.grey,
+                    collapsedIconColor: AppColors.greyText,
                     childrenPadding: const EdgeInsets.fromLTRB(16, 0, 16, 16),
                     children: [
                       Container(
@@ -97,8 +97,8 @@ class FaqView extends GetView<HomeController> {
                         child: Text(
                           faq['answer'] ?? '',
                           style: GoogleFonts.montserrat(
-                            fontSize: 14,
-                            color: Colors.grey[700],
+                            fontSize: 8.0,
+                            color: AppColors.primaryBlack,
                             height: 1.5,
                           ),
                         ),

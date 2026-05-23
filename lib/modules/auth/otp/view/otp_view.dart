@@ -61,8 +61,8 @@ class OtpView extends GetView<OtpController> {
                           child: const Text(
                             'Verify OTP',
                             style: TextStyle(
-                              fontSize: 22,
-                              fontWeight: FontWeight.w800,
+                              fontSize: 15.0,
+                              fontWeight: FontWeight.normal,
                               color: AppColors.primaryBlack,
                             ),
                           ),
@@ -92,8 +92,8 @@ class OtpView extends GetView<OtpController> {
                       Text(
                         'Enter Verification Code',
                         style: const TextStyle(
-                          fontSize: 20,
-                          fontWeight: FontWeight.w800,
+                          fontSize: 15.0,
+                          fontWeight: FontWeight.normal,
                           color: AppColors.primaryBlack,
                         ),
                       ),
@@ -103,7 +103,7 @@ class OtpView extends GetView<OtpController> {
                         text: TextSpan(
                           text: 'We sent a 6-digit code to\n',
                           style: const TextStyle(
-                            fontSize: 14,
+                            fontSize: 12.0,
                             color: AppColors.greyText,
                             height: 1.6,
                           ),
@@ -111,7 +111,7 @@ class OtpView extends GetView<OtpController> {
                             TextSpan(
                               text: '+91 ${controller.phoneNumber}',
                               style: const TextStyle(
-                                fontWeight: FontWeight.w700,
+                                fontWeight: FontWeight.normal,
                                 color: AppColors.primaryBlack,
                               ),
                             ),
@@ -154,8 +154,8 @@ class OtpView extends GetView<OtpController> {
                                   : const Text(
                                       'Verify & Continue',
                                       style: TextStyle(
-                                        fontSize: 16,
-                                        fontWeight: FontWeight.w800,
+                                        fontSize: 13.0,
+                                        fontWeight: FontWeight.normal,
                                       ),
                                     ),
                             ),
@@ -170,7 +170,7 @@ class OtpView extends GetView<OtpController> {
                               const Text(
                                 "Didn't receive the code? ",
                                 style: TextStyle(
-                                    color: AppColors.greyText, fontSize: 13),
+                                    color: AppColors.greyText, fontSize: 12.0),
                               ),
                               GestureDetector(
                                 onTap: controller.canResend.value
@@ -184,8 +184,8 @@ class OtpView extends GetView<OtpController> {
                                     color: controller.canResend.value
                                         ? AppColors.primaryBlack
                                         : AppColors.greyText,
-                                    fontWeight: FontWeight.w800,
-                                    fontSize: 13,
+                                    fontWeight: FontWeight.normal,
+                                    fontSize: 12.0,
                                   ),
                                 ),
                               ),
@@ -355,8 +355,8 @@ class _OtpSingleBoxState extends State<_OtpSingleBox>
             maxLength: 1,
             inputFormatters: [FilteringTextInputFormatter.digitsOnly],
             style: const TextStyle(
-              fontSize: 22,
-              fontWeight: FontWeight.w800,
+              fontSize: 15.0,
+              fontWeight: FontWeight.normal,
               color: AppColors.primaryBlack,
             ),
             decoration: const InputDecoration(

@@ -33,8 +33,8 @@ class LoginView extends GetView<LoginController> {
                       begin: Alignment.topCenter,
                       end: Alignment.bottomCenter,
                       colors: [
-                        Colors.black.withOpacity(0.1),
-                        Colors.black.withOpacity(0.4),
+                        AppColors.primaryBlack.withOpacity(0.1),
+                        AppColors.primaryBlack.withOpacity(0.4),
                       ],
                     ),
                   ),
@@ -99,17 +99,17 @@ class LoginView extends GetView<LoginController> {
         const Text(
           'Welcome Back',
           style: TextStyle(
-            fontSize: 28,
-            fontWeight: FontWeight.w900,
+            fontSize: 14.0,
+            fontWeight: FontWeight.normal,
             color: AppColors.primaryBlack,
           ),
         ),
         Text(
           'Enter your mobile number to get started.',
           style: TextStyle(
-            fontSize: 14,
+            fontSize: 12.0,
             color: AppColors.greyText,
-            fontWeight: FontWeight.w500,
+            fontWeight: FontWeight.normal,
           ),
         ),
         const SizedBox(height: 35),
@@ -131,14 +131,14 @@ class LoginView extends GetView<LoginController> {
                   borderRadius: BorderRadius.circular(16),
                   boxShadow: [
                     BoxShadow(
-                      color: Colors.black.withOpacity(0.05),
+                      color: AppColors.primaryBlack.withOpacity(0.05),
                       blurRadius: 10,
                     )
                   ],
                 ),
                 child: const Text(
                   '🇮🇳 +91',
-                  style: TextStyle(fontWeight: FontWeight.w900, fontSize: 16),
+                  style: TextStyle(fontWeight: FontWeight.normal, fontSize: 13.0),
                 ),
               ),
               const SizedBox(width: 10),
@@ -151,15 +151,15 @@ class LoginView extends GetView<LoginController> {
                     LengthLimitingTextInputFormatter(10),
                   ],
                   style: const TextStyle(
-                    fontSize: 18,
-                    fontWeight: FontWeight.w800,
+                    fontSize: 14.0,
+                    fontWeight: FontWeight.normal,
                     letterSpacing: 2,
                   ),
                   decoration: const InputDecoration(
                     hintText: 'Phone Number',
                     border: InputBorder.none,
                     hintStyle: TextStyle(
-                      fontSize: 16,
+                      fontSize: 13.0,
                       fontWeight: FontWeight.w400,
                       letterSpacing: 0,
                       color: AppColors.greyText,
@@ -184,7 +184,7 @@ class LoginView extends GetView<LoginController> {
                   foregroundColor: Colors.white,
                   shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(18)),
                   elevation: 8,
-                  shadowColor: Colors.black.withOpacity(0.3),
+                  shadowColor: AppColors.primaryBlack.withOpacity(0.3),
                 ),
                 onPressed: controller.isLoading.value ? null : () => controller.sendOtp(),
                 child: controller.isLoading.value
@@ -195,7 +195,7 @@ class LoginView extends GetView<LoginController> {
                       )
                     : const Text(
                         'Continue with OTP',
-                        style: TextStyle(fontSize: 18, fontWeight: FontWeight.w900),
+                        style: TextStyle(fontSize: 14.0, fontWeight: FontWeight.normal),
                       ),
               ),
             )),
@@ -205,7 +205,7 @@ class LoginView extends GetView<LoginController> {
           child: Text(
             'By continuing, you agree to our Terms & Conditions',
             textAlign: TextAlign.center,
-            style: TextStyle(fontSize: 11, color: AppColors.greyText),
+            style: TextStyle(fontSize: 12.0, color: AppColors.greyText),
           ),
         ),
       ],
@@ -222,8 +222,8 @@ class LoginView extends GetView<LoginController> {
         const Text(
           'Verification',
           style: TextStyle(
-            fontSize: 28,
-            fontWeight: FontWeight.w900,
+            fontSize: 14.0,
+            fontWeight: FontWeight.normal,
             color: AppColors.primaryBlack,
           ),
         ),
@@ -231,16 +231,16 @@ class LoginView extends GetView<LoginController> {
           text: TextSpan(
             text: 'We have sent a code to ',
             style: TextStyle(
-              fontSize: 14,
+              fontSize: 12.0,
               color: AppColors.greyText,
-              fontWeight: FontWeight.w500,
+              fontWeight: FontWeight.normal,
             ),
             children: [
               TextSpan(
                 text: '+91 ${controller.phoneController.text}',
                 style: const TextStyle(
                   color: AppColors.primaryBlack,
-                  fontWeight: FontWeight.w900,
+                  fontWeight: FontWeight.normal,
                 ),
               ),
             ],
@@ -263,7 +263,7 @@ class LoginView extends GetView<LoginController> {
                   foregroundColor: Colors.white,
                   shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(18)),
                   elevation: 8,
-                  shadowColor: Colors.black.withOpacity(0.3),
+                  shadowColor: AppColors.primaryBlack.withOpacity(0.3),
                 ),
                 onPressed: controller.isLoading.value ? null : () => controller.verifyOtp(),
                 child: controller.isLoading.value
@@ -274,7 +274,7 @@ class LoginView extends GetView<LoginController> {
                       )
                     : const Text(
                         'Verify OTP',
-                        style: TextStyle(fontSize: 18, fontWeight: FontWeight.w900),
+                        style: TextStyle(fontSize: 14.0, fontWeight: FontWeight.normal),
                       ),
               ),
             )),
@@ -295,7 +295,7 @@ class LoginView extends GetView<LoginController> {
                       ? 'Resend in ${controller.timerSeconds.value}s'
                       : 'Resend Now',
                   style: const TextStyle(
-                    fontWeight: FontWeight.w900,
+                    fontWeight: FontWeight.normal,
                     color: AppColors.primaryYellow,
                   ),
                 ),
@@ -437,7 +437,7 @@ class _OtpSingleBoxState extends State<_OtpSingleBox> with SingleTickerProviderS
             textAlign: TextAlign.center,
             maxLength: 1,
             inputFormatters: [FilteringTextInputFormatter.digitsOnly],
-            style: const TextStyle(fontSize: 24, fontWeight: FontWeight.w900),
+            style: const TextStyle(fontSize: 13.0, fontWeight: FontWeight.normal),
             decoration: const InputDecoration(
               counterText: '',
               border: InputBorder.none,

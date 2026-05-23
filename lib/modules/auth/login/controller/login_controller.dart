@@ -3,6 +3,7 @@ import 'package:get/get.dart';
 import 'package:own_holiday_app/routes/app_pages.dart';
 import 'package:own_holiday_app/data/repository/auth_repo.dart';
 import 'package:own_holiday_app/modules/auth/login/model/user_model.dart';
+import 'package:own_holiday_app/utils/app_colors.dart';
 import 'dart:convert';
 
 class LoginController extends GetxController {
@@ -22,7 +23,7 @@ class LoginController extends GetxController {
         'Invalid Number',
         'Please enter a valid 10-digit phone number',
         snackPosition: SnackPosition.BOTTOM,
-        backgroundColor: Colors.redAccent,
+        backgroundColor: AppColors.brownAccent,
         colorText: Colors.white,
       );
       return;
@@ -40,7 +41,7 @@ class LoginController extends GetxController {
           'OTP Sent',
           data['message'] ?? 'Verification code sent successfully',
           snackPosition: SnackPosition.BOTTOM,
-          backgroundColor: Colors.green,
+          backgroundColor: AppColors.primaryYellow,
           colorText: Colors.white,
         );
       } else {
@@ -48,7 +49,7 @@ class LoginController extends GetxController {
           'Error',
           data['message'] ?? 'Failed to send OTP',
           snackPosition: SnackPosition.BOTTOM,
-          backgroundColor: Colors.redAccent,
+          backgroundColor: AppColors.brownAccent,
           colorText: Colors.white,
         );
       }
@@ -57,7 +58,7 @@ class LoginController extends GetxController {
         'Error',
         'Something went wrong. Please try again.',
         snackPosition: SnackPosition.BOTTOM,
-        backgroundColor: Colors.redAccent,
+        backgroundColor: AppColors.brownAccent,
         colorText: Colors.white,
       );
     } finally {
@@ -83,7 +84,7 @@ class LoginController extends GetxController {
         'Invalid OTP',
         'Please enter the 6-digit verification code',
         snackPosition: SnackPosition.BOTTOM,
-        backgroundColor: Colors.redAccent,
+        backgroundColor: AppColors.brownAccent,
         colorText: Colors.white,
       );
       return;
@@ -102,7 +103,7 @@ class LoginController extends GetxController {
           'Success',
           'Verification Successful',
           snackPosition: SnackPosition.BOTTOM,
-          backgroundColor: Colors.green,
+          backgroundColor: AppColors.primaryYellow,
           colorText: Colors.white,
         );
         Get.offAllNamed(Routes.DASHBOARD);
@@ -111,7 +112,7 @@ class LoginController extends GetxController {
           'Verification Failed',
           data['message'] ?? 'Invalid OTP',
           snackPosition: SnackPosition.BOTTOM,
-          backgroundColor: Colors.redAccent,
+          backgroundColor: AppColors.brownAccent,
           colorText: Colors.white,
         );
       }
@@ -120,7 +121,7 @@ class LoginController extends GetxController {
         'Error',
         'Verification failed. Please try again.',
         snackPosition: SnackPosition.BOTTOM,
-        backgroundColor: Colors.redAccent,
+        backgroundColor: AppColors.brownAccent,
         colorText: Colors.white,
       );
     } finally {
